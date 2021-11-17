@@ -1,7 +1,5 @@
 library flutter_common_widgets;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/widget/index.dart';
+
+export 'src/base_vertical_page.dart';
