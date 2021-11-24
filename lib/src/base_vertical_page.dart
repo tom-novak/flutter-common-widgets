@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_widgets.dart';
+import 'package:flutter_common_widgets/src/widget/titled_message.dart';
+import 'package:flutter_conditional_rendering/conditional_switch.dart';
+
+String contentStateBuilder(BuildContext context) => WidgetState.content;
 
 class BaseVerticalPage extends StatelessWidget {
   final PreferredSizeWidget? appBar;
@@ -7,6 +12,7 @@ class BaseVerticalPage extends StatelessWidget {
   final Widget? content;
   final Widget? belowContent;
   final Widget? bottomNavigationBar;
+  final String Function(BuildContext) widgetStateBuilder;
 
   const BaseVerticalPage({
     Key? key,
@@ -16,7 +22,9 @@ class BaseVerticalPage extends StatelessWidget {
     this.content,
     this.belowContent,
     this.bottomNavigationBar,
-  }) : super(key: key);
+    String Function(BuildContext)? widgetStateBuilder,
+  }) : widgetStateBuilder = widgetStateBuilder ?? contentStateBuilder,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,20 +33,34 @@ class BaseVerticalPage extends StatelessWidget {
           AppBar(
             title: appBarTitle,
           ),
-      body: Column(
-        children: [
-          if (aboveContent != null)
-            Container(
-              child: aboveContent,
-            ),
-          Expanded(
-            child: Container(child: content ?? const SizedBox.shrink()),
-          ),
-          if (belowContent != null)
-            Container(
-              child: belowContent,
-            ),
-        ],
+      body: ConditionalSwitch.single<String>(
+        context: context,
+        valueBuilder: widgetStateBuilder,
+        caseBuilders: {
+          WidgetState.content: (context) {
+            return Column(
+              children: [
+                if (aboveContent != null)
+                  Container(
+                    child: aboveContent,
+                  ),
+                Expanded(
+                  child: content ?? const SizedBox.shrink(),
+                ),
+                if (belowContent != null)
+                  Container(
+                    child: belowContent,
+                  ),
+              ],
+            );
+          },
+          WidgetState.loading: (context) => const LoadingList(),
+          WidgetState.error: (context) => const TitledMessage(
+                title: 'Error',
+                message: 'Something wrong',
+              )
+        },
+        fallbackBuilder: (context) => const SizedBox.shrink(),
       ),
       bottomNavigationBar: bottomNavigationBar,
     );

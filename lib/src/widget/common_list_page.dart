@@ -32,10 +32,12 @@ class CommonListPage extends StatelessWidget {
             title: Text(
               items[index],
             ),
+            onTap: () {},
           );
         },
       ),
       belowContent: belowContent,
+      widgetStateBuilder: (context) => WidgetState.content,
     );
   }
 }
