@@ -12,15 +12,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Common App',
       theme: AppTheme.defaultLight(),
       home: CommonListPage(
         appBarTitle: const Text('Base app'),
         aboveContent: SearchForm(),
-        items: const [
-          'Item 1',
-          'Item 2',
+        items: [
+          CommonItem(title: 'Item 1'),
+          CommonItem(title: 'Item 2'),
         ],
+        onSelected: (item) {
+          ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Selected ${item.title ?? ''}')));
+        },
       ),
     );
   }
