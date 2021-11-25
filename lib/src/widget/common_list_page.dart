@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
+import 'package:flutter_common_widgets/src/widget/common_list_tile.dart';
 
 class CommonListPage extends StatelessWidget {
   final PreferredSizeWidget? appBar;
   final Widget? appBarTitle;
   final Widget? aboveContent;
   final Widget? belowContent;
+  final int itemCount;
   final IndexedWidgetBuilder? itemBuilder;
-  final List items;
+  final ScrollController? controller;
+  final List<CommonItem> items;
+  final ValueChanged<CommonItem>? onSelected;
+  final ValueChanged<CommonItem>? onLongPress;
+  final String Function(BuildContext)? widgetStateBuilder;
 
   const CommonListPage({
     Key? key,
@@ -15,9 +21,15 @@ class CommonListPage extends StatelessWidget {
     this.appBarTitle,
     this.aboveContent,
     this.belowContent,
+    this.itemCount = 0,
     this.itemBuilder,
-    this.items = const <String>[],
-  }) : super(key: key);
+    this.controller,
+    List<CommonItem>? items,
+    this.onSelected,
+    this.onLongPress,
+    this.widgetStateBuilder,
+  })  : items = items ?? const <CommonItem>[],
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +38,22 @@ class CommonListPage extends StatelessWidget {
       appBarTitle: appBarTitle,
       aboveContent: aboveContent,
       content: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: itemBuilder ?? (context, index) {
-          return ListTile(
-            title: Text(
-              items[index],
-            ),
-            onTap: () {},
-          );
-        },
+        itemCount: itemBuilder != null ? itemCount : items.length,
+        itemBuilder: itemBuilder ??
+            (context, index) {
+              return CommonListTile(
+                item: items[index],
+                onTap:
+                    onSelected != null ? () => onSelected!(items[index]) : null,
+                onLongPress: onLongPress != null
+                    ? () => onLongPress!(items[index])
+                    : null,
+              );
+            },
+        controller: controller,
       ),
       belowContent: belowContent,
-      widgetStateBuilder: (context) => WidgetState.content,
+      widgetStateBuilder: widgetStateBuilder,
     );
   }
 }
