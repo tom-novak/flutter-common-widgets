@@ -13,6 +13,7 @@ class CommonListPage extends StatelessWidget {
   final List<CommonItem> items;
   final ValueChanged<CommonItem>? onSelected;
   final ValueChanged<CommonItem>? onLongPress;
+  final String Function(BuildContext)? widgetStateBuilder;
 
   const CommonListPage({
     Key? key,
@@ -26,6 +27,7 @@ class CommonListPage extends StatelessWidget {
     List<CommonItem>? items,
     this.onSelected,
     this.onLongPress,
+    this.widgetStateBuilder,
   })  : items = items ?? const <CommonItem>[],
         super(key: key);
 
@@ -51,7 +53,7 @@ class CommonListPage extends StatelessWidget {
         controller: controller,
       ),
       belowContent: belowContent,
-      widgetStateBuilder: (context) => WidgetState.content,
+      widgetStateBuilder: widgetStateBuilder,
     );
   }
 }

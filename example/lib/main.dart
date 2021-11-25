@@ -16,14 +16,18 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.defaultLight(),
       home: CommonListPage(
         appBarTitle: const Text('Base app'),
-        aboveContent: SearchForm(),
+        //aboveContent: SearchForm(),
         items: [
-          CommonItem(title: 'Item 1'),
-          CommonItem(title: 'Item 2'),
+          CommonItem(title: 'Item 1', subtitle: 'Lorem ipsum dolor sit amet'),
+          CommonItem(title: 'Item 2', subtitle: 'Lorem ipsum dolor sit amet'),
+          CommonItem(title: 'Item 3', subtitle: 'Lorem ipsum dolor sit amet'),
+          CommonItem(title: 'Item 4', subtitle: 'Lorem ipsum dolor sit amet'),
+          CommonItem(title: 'Item 5', subtitle: 'Lorem ipsum dolor sit amet'),
+          CommonItem(title: 'Item 6', subtitle: 'Lorem ipsum dolor sit amet'),
+          CommonItem(title: 'Item 7', subtitle: 'Lorem ipsum dolor sit amet'),
         ],
-        onSelected: (item) {
-          ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Selected ${item.title ?? ''}')));
+        widgetStateBuilder: (context) {
+          return WidgetState.loading;
         },
       ),
     );

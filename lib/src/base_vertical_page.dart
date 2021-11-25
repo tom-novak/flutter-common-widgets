@@ -54,7 +54,7 @@ class BaseVerticalPage extends StatelessWidget {
               ],
             );
           },
-          WidgetState.loading: (context) => const LoadingList(),
+          WidgetState.loading: (context) => const ShimmerList(itemCount: 7,),
           WidgetState.error: (context) => const TitledMessage(
                 title: 'Error',
                 message: 'Something wrong',
