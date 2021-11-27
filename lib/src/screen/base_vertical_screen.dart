@@ -5,7 +5,7 @@ import 'package:flutter_conditional_rendering/conditional_switch.dart';
 
 String contentStateBuilder(BuildContext context) => WidgetState.content;
 
-class BaseVerticalPage extends StatelessWidget {
+class BaseVerticalScreen extends StatelessWidget {
   final PreferredSizeWidget? appBar;
   final Widget? appBarTitle;
   final Widget? aboveContent;
@@ -14,7 +14,7 @@ class BaseVerticalPage extends StatelessWidget {
   final Widget? bottomNavigationBar;
   final String Function(BuildContext) widgetStateBuilder;
 
-  const BaseVerticalPage({
+  const BaseVerticalScreen({
     Key? key,
     this.appBar,
     this.appBarTitle,
