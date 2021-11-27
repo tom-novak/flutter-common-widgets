@@ -33,7 +33,7 @@ class CommonListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseVerticalPage(
+    return BaseVerticalScreen(
       appBar: appBar,
       appBarTitle: appBarTitle,
       aboveContent: aboveContent,
