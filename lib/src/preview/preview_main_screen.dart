@@ -9,32 +9,32 @@ class PreviewMainScreen extends StatelessWidget {
     return MainScreen(
       slots: [
         PageSlot(
-          icon: const Icon(Icons.coffee_sharp),
+          icon: const Icon(Icons.dashboard_outlined),
           label: 'Dashboard',
           content: const PreviewDashboardPage(),
         ),
         PageSlot(
-          icon: const Icon(Icons.directions_bike),
+          icon: const Icon(Icons.list_outlined),
           label: 'List',
           content: const PreviewListPage(),
         ),
         PageSlot(
-          icon: const Icon(Icons.grass),
+          icon: const Icon(Icons.grid_view_outlined),
           label: 'Cards',
           content: const PreviewCardsPage(),
         ),
         PageSlot(
-          icon: const Icon(Icons.grass),
+          icon: const Icon(Icons.loupe_outlined),
           label: 'Detail',
           content: const PreviewDetailPage(),
         ),
         PageSlot(
-          icon: const Icon(Icons.grass),
+          icon: const Icon(Icons.account_box_outlined),
           label: 'Profile',
           content: const PreviewProfilePage(),
         ),
         PageSlot(
-          icon: const Icon(Icons.grass),
+          icon: const Icon(Icons.info_outlined),
           label: 'About',
           content: const PreviewAboutPage(),
         ),

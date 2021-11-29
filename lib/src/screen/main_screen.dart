@@ -39,37 +39,30 @@ class _MainScreenState extends State<MainScreen> {
       body: widget.slots[_selectedIndex].content,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.coffee_sharp),
-            label: 'Work',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.directions_bike),
-            label: 'Bike',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grass),
-            label: 'Chill',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grass),
-            label: 'Chill',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grass),
-            label: 'Chill',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grass),
-            label: 'Chill',
-          ),
-        ],
+        items: List<BottomNavigationBarItem>.generate(
+              widget.slots.length > 5 ? 4 : widget.slots.length,
+              (index) => BottomNavigationBarItem(
+                icon: widget.slots[index].icon,
+                label: widget.slots[index].label,
+              ),
+            ) +
+            [
+              if (widget.slots.length > 5)
+                const BottomNavigationBarItem(
+                  icon: Icon(Icons.menu),
+                  label: 'Next',
+                ),
+            ],
         currentIndex: _selectedIndex,
         onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
+          if (widget.slots.length <= 5 ||
+              (widget.slots.length > 5 && index < 4)) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          } else {
+            // TODO implement on burger menu tap
+          }
         },
       ),
     );
