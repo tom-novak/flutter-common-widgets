@@ -12,9 +12,8 @@ class PreviewListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonListPage(
-      appBarTitle: const Text('Base app'),
       items: List<CommonItem>.generate(
-        10,
+        1000,
         (index) => CommonItem(
           title: 'Item $index',
           subtitle: 'Lorem ipsum dolor sit amet',

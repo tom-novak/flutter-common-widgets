@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
+import 'package:flutter_common_widgets/src/screen/base_vertical_page.dart';
 import 'package:flutter_common_widgets/src/widget/common_list_tile.dart';
 
 class CommonListPage extends StatelessWidget {
-  final PreferredSizeWidget? appBar;
-  final Widget? appBarTitle;
-  final Widget? aboveContent;
-  final Widget? belowContent;
+  final Widget? above;
+  final Widget? below;
   final int itemCount;
   final IndexedWidgetBuilder? itemBuilder;
   final ScrollController? controller;
@@ -17,10 +16,8 @@ class CommonListPage extends StatelessWidget {
 
   const CommonListPage({
     Key? key,
-    this.appBar,
-    this.appBarTitle,
-    this.aboveContent,
-    this.belowContent,
+    this.above,
+    this.below,
     this.itemCount = 0,
     this.itemBuilder,
     this.controller,
@@ -33,10 +30,8 @@ class CommonListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseVerticalScreen(
-      appBar: appBar,
-      appBarTitle: appBarTitle,
-      aboveContent: aboveContent,
+    return BaseVerticalPage(
+      above: above,
       content: ListView.builder(
         itemCount: itemBuilder != null ? itemCount : items.length,
         itemBuilder: itemBuilder ??
@@ -52,7 +47,7 @@ class CommonListPage extends StatelessWidget {
             },
         controller: controller,
       ),
-      belowContent: belowContent,
+      below: below,
       widgetStateBuilder: widgetStateBuilder,
     );
   }
