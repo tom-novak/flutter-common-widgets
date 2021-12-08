@@ -38,8 +38,22 @@ class CommonListPage extends StatelessWidget {
             (context, index) {
               return CommonListTile(
                 item: items[index],
-                onTap:
-                    onSelected != null ? () => onSelected!(items[index]) : null,
+                onTap: () {
+                  if (onSelected != null) {
+                    onSelected!(items[index]);
+                  } else {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const BaseVerticalScreen(
+                            appBarTitle: Text('Detail'),
+                            body: PreviewDetailPage(),
+                          );
+                        },
+                      ),
+                    );
+                  }
+                },
                 onLongPress: onLongPress != null
                     ? () => onLongPress!(items[index])
                     : null,
