@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class PageSlot {
   final String label;
-  final String? appBarTitle;
+  final String appBarTitle;
   final Icon icon;
   final Widget content;
 
@@ -19,8 +19,8 @@ class MainScreen extends StatefulWidget {
 
   const MainScreen({
     Key? key,
-    List<PageSlot>? slots,
-  })  : slots = slots ?? const <PageSlot>[],
+    required this.slots,
+  })  : assert(slots.length <= 5, 'Slots count cannot be bigger than 5.'),
         super(key: key);
 
   @override
@@ -40,29 +40,17 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: List<BottomNavigationBarItem>.generate(
-              widget.slots.length > 5 ? 4 : widget.slots.length,
-              (index) => BottomNavigationBarItem(
-                icon: widget.slots[index].icon,
-                label: widget.slots[index].label,
-              ),
-            ) +
-            [
-              if (widget.slots.length > 5)
-                const BottomNavigationBarItem(
-                  icon: Icon(Icons.menu),
-                  label: 'Next',
-                ),
-            ],
+          widget.slots.length,
+          (index) => BottomNavigationBarItem(
+            icon: widget.slots[index].icon,
+            label: widget.slots[index].label,
+          ),
+        ),
         currentIndex: _selectedIndex,
         onTap: (index) {
-          if (widget.slots.length <= 5 ||
-              (widget.slots.length > 5 && index < 4)) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          } else {
-            // TODO implement on burger menu tap
-          }
+          setState(() {
+            _selectedIndex = index;
+          });
         },
       ),
     );
