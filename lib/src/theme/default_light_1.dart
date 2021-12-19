@@ -32,6 +32,11 @@ var _defaultLight1 = ThemeData(
       fontSize: 24,
       fontWeight: FontWeight.w300,
     ),
+    headline5: _typography.white.headline5?.copyWith(
+      color: _textColor,
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+    ),
     bodyText1: _typography.black.bodyText1?.copyWith(
       color: _textColor,
       fontWeight: FontWeight.w300,
