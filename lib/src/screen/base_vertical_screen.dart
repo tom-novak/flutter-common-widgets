@@ -15,16 +15,14 @@ class BaseVerticalScreen extends StatelessWidget {
     this.body,
     this.bottomNavigationBar,
     String Function(BuildContext)? widgetStateBuilder,
-  }) : widgetStateBuilder = widgetStateBuilder ?? contentStateBuilder,
+  })  : widgetStateBuilder = widgetStateBuilder ?? contentStateBuilder,
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar ??
-          AppBar(
-            title: appBarTitle,
-          ),
+      appBar:
+          appBar ?? (appBarTitle != null ? AppBar(title: appBarTitle) : null),
       body: body,
       bottomNavigationBar: bottomNavigationBar,
     );

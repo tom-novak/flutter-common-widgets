@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
-import 'package:flutter_common_widgets/src/screen/base_vertical_page.dart';
-import 'package:flutter_common_widgets/src/widget/common_list_tile.dart';
 
 class CommonListPage extends StatelessWidget {
   final Widget? above;
@@ -46,7 +44,6 @@ class CommonListPage extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) {
                           return const BaseVerticalScreen(
-                            appBarTitle: Text('Detail'),
                             body: PreviewDetailPage(),
                           );
                         },

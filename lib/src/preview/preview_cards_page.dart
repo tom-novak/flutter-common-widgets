@@ -42,7 +42,6 @@ class PreviewCardsPage extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) {
                     return const BaseVerticalScreen(
-                      appBarTitle: Text('Detail'),
                       body: PreviewDetailPage(),
                     );
                   },
