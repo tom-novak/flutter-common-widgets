@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CommonItem {
+  final Icon? icon;
   final Image? image;
   final String? title;
   final String? subtitle;
@@ -8,6 +9,7 @@ class CommonItem {
   final String? imageSrc;
 
   CommonItem({
+    this.icon,
     this.image,
     this.title,
     this.subtitle,

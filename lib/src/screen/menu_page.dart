@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
-import 'package:flutter_common_widgets/src/util/page_slot_extension.dart';
 
-class NavigationMenuPage extends StatelessWidget {
-  final List<PageSlot> items;
-  final ValueChanged<PageSlot>? onPageSlotChanged;
+class MenuPage extends StatelessWidget {
+  final List<CommonItem> items;
+  final ValueChanged<CommonItem>? onTap;
+  final ValueChanged<CommonItem>? onLongPress;
 
-  const NavigationMenuPage({
-    Key? key,
-    List<PageSlot>? items,
-    this.onPageSlotChanged,
-  })  : items = items ?? const <PageSlot>[],
+  const MenuPage(
+      {Key? key, List<CommonItem>? items, this.onTap, this.onLongPress})
+      : items = items ?? const <CommonItem>[],
         super(key: key);
 
   @override
@@ -19,23 +17,10 @@ class NavigationMenuPage extends StatelessWidget {
       content: ListView.builder(
         itemCount: items.length,
         itemBuilder: (context, index) => CommonListTile(
-          item: items[index].toCommonItem(),
-          onTap: () {
-            if (onPageSlotChanged != null) {
-              onPageSlotChanged!(items[index]);
-            } else {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return BaseVerticalScreen(
-                      appBarTitle: Text(items[index].appBarTitle),
-                      body: items[index].content,
-                    );
-                  },
-                ),
-              );
-            }
-          },
+          item: items[index],
+          onTap: () => onTap != null ? onTap!(items[index]) : null,
+          onLongPress: () =>
+              onLongPress != null ? onLongPress!(items[index]) : null,
         ),
       ),
     );

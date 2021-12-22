@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
-import 'package:flutter_common_widgets/src/screen/menu_page.dart';
 
 final aboutSlot = PageSlot(
   icon: const Icon(Icons.info_outlined),
@@ -38,12 +37,7 @@ final mainSlots = <PageSlot>[
   PageSlot(
     icon: const Icon(Icons.menu),
     label: 'Next',
-    content: NavigationMenuPage(
-      items: [
-        profileSlot,
-        aboutSlot,
-      ],
-    ),
+    content: PreviewMenuPage(),
   ),
 ];
 
