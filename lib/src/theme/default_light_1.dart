@@ -61,4 +61,8 @@ var _defaultLight1 = ThemeData(
       minimumSize: const Size(48, 48),
     ),
   ),
+  dividerTheme: DividerThemeData(
+    color: Colors.grey[300],
+    space: 1.0,
+  ),
 );

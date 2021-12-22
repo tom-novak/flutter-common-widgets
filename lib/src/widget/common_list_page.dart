@@ -30,8 +30,9 @@ class CommonListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseVerticalPage(
       above: above,
-      content: ListView.builder(
+      content: ListView.separated(
         itemCount: itemBuilder != null ? itemCount : items.length,
+        separatorBuilder: (context, index) => const Divider(),
         itemBuilder: itemBuilder ??
             (context, index) {
               return CommonListTile(

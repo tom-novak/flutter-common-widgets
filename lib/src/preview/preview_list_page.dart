@@ -15,6 +15,13 @@ class PreviewListPage extends StatelessWidget {
       items: List<CommonItem>.generate(
         1000,
         (index) => CommonItem(
+          image: Image.asset(
+            'assets/images/train.jpg',
+            package: 'flutter_common_widgets',
+            width: 48.0,
+            height: 48.0,
+            fit: BoxFit.cover,
+          ),
           title: 'Item $index',
           subtitle: 'Lorem ipsum dolor sit amet',
         ),
