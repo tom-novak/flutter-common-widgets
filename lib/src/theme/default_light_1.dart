@@ -1,30 +1,26 @@
 part of 'theme.dart';
 
-// ---- Common ----
-var _platform = TargetPlatform.iOS;
-var _typography = Typography.material2018(platform: _platform);
-
 // ---- Light Theme ----
-var _primaryColor = Colors.cyan;
-var _accentColor = Colors.amber;
-var _textColor = Colors.grey[600];
+var _defaultLight1PrimaryColor = Colors.cyan;
+var _defaultLight1AccentColor = Colors.amber;
+var _defaultLIght1TextColor = Colors.grey[600];
 
 var _defaultLight1 = ThemeData(
   colorScheme: ColorScheme.light(
-    primary: _primaryColor,
-    secondary: _accentColor,
+    primary: _defaultLight1PrimaryColor,
+    secondary: _defaultLight1AccentColor,
   ),
   textTheme: _typography.black.copyWith(
     headline1: _typography.black.headline1?.copyWith(
-      color: _accentColor,
+      color: _defaultLight1AccentColor,
       fontSize: 48,
     ),
     headline2: _typography.black.headline2?.copyWith(
-      color: _accentColor,
+      color: _defaultLight1AccentColor,
       fontSize: 24,
     ),
     headline3: _typography.black.headline3?.copyWith(
-      color: _textColor,
+      color: _defaultLIght1TextColor,
       fontSize: 24,
       fontWeight: FontWeight.w500,
     ),
@@ -33,12 +29,12 @@ var _defaultLight1 = ThemeData(
       fontWeight: FontWeight.w300,
     ),
     headline5: _typography.white.headline5?.copyWith(
-      color: _textColor,
+      color: _defaultLIght1TextColor,
       fontSize: 16,
       fontWeight: FontWeight.bold,
     ),
     bodyText1: _typography.black.bodyText1?.copyWith(
-      color: _textColor,
+      color: _defaultLIght1TextColor,
       fontWeight: FontWeight.w300,
       height: 1.75,
     ),
@@ -46,23 +42,33 @@ var _defaultLight1 = ThemeData(
       fontWeight: FontWeight.w200,
     ),
     subtitle1: _typography.black.subtitle1?.copyWith(
-      color: _textColor,
+      color: _defaultLIght1TextColor,
     ),
   ),
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
-      primary: _accentColor,
+      primary: _defaultLight1AccentColor,
       minimumSize: const Size(48, 48),
     ),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      primary: _accentColor,
+      primary: _defaultLight1PrimaryColor,
       minimumSize: const Size(48, 48),
     ),
   ),
   dividerTheme: DividerThemeData(
     color: Colors.grey[300],
     space: 1.0,
+  ),
+  inputDecorationTheme: InputDecorationTheme(
+    labelStyle: _typography.white.headline5?.copyWith(
+      color: _defaultLIght1TextColor,
+      fontSize: 16.0,
+    ),
+    hintStyle: _typography.white.headline5?.copyWith(
+      color: Colors.grey[400],
+      fontSize: 16.0,
+    ),
   ),
 );
