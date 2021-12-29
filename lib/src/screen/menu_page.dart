@@ -14,8 +14,9 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseVerticalPage(
-      content: ListView.builder(
+      content: ListView.separated(
         itemCount: items.length,
+        separatorBuilder: (context, index) => const Divider(),
         itemBuilder: (context, index) => CommonListTile(
           item: items[index],
           onTap: () => onTap != null ? onTap!(items[index]) : null,
