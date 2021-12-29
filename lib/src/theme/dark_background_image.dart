@@ -1,14 +1,22 @@
 part of 'theme.dart';
 
 ThemeData _darkBackgroundImage(BuildContext context) {
+  var textTheme = Theme.of(context).textTheme.apply(
+        displayColor: Colors.white,
+        bodyColor: Colors.white,
+      );
+
   return Theme.of(context).copyWith(
+    textTheme: textTheme,
     colorScheme: Theme.of(context).colorScheme.copyWith(
-      background: Colors.transparent,
-    ),
+          primary: Colors.white,
+          background: Colors.transparent,
+        ),
     scaffoldBackgroundColor: Colors.transparent,
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
+      elevation: 0,
       systemOverlayStyle: SystemUiOverlayStyle.light,
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.black.withOpacity(0.5),
     ),
     dividerTheme: Theme.of(context).dividerTheme.copyWith(
           color: Colors.white,
@@ -18,6 +26,11 @@ ThemeData _darkBackgroundImage(BuildContext context) {
           endIndent: 64.0,
         ),
     inputDecorationTheme: Theme.of(context).inputDecorationTheme.copyWith(
+          filled: true,
+          fillColor: Colors.black.withOpacity(0.5),
+          labelStyle: const TextStyle(
+            color: Colors.white,
+          ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: Theme.of(context).colorScheme.background,
