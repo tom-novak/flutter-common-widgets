@@ -4,6 +4,14 @@ import 'package:flutter_common_widgets/src/screen/menu_page.dart';
 
 class PreviewMenuPage extends StatelessWidget {
   final menuItems = <String, CommonItem>{
+    'login': CommonItem(
+      icon: const Icon(Icons.login),
+      title: 'Login',
+    ),
+    'start_login': CommonItem(
+      icon: const Icon(Icons.login),
+      title: 'Start screen login',
+    ),
     'profile': CommonItem(
       icon: const Icon(Icons.info),
       title: 'Profile',
@@ -45,6 +53,26 @@ class PreviewMenuPage extends StatelessWidget {
               size: 48.0,
             ),
             applicationLegalese: 'MIT License',
+          );
+        } else if (item == menuItems['login']) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return PreviewLogin(onSubmit: (value) {
+                  Navigator.of(context).pop();
+                },);
+              },
+            ),
+          );
+        } else if (item == menuItems['start_login']) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return PreviewStartLogin(onSubmit: (value) {
+                  Navigator.of(context).pop();
+                },);
+              },
+            ),
           );
         }
       },
