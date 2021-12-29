@@ -8,7 +8,7 @@ class DarkBackgroundDecorationImage extends DecorationImage {
   }) : super(
           colorFilter: colorFilter ??
               ColorFilter.mode(
-                Colors.black.withOpacity(0.4),
+                Colors.black.withOpacity(0.2),
                 BlendMode.srcOver,
               ),
           fit: fit ?? BoxFit.cover,
