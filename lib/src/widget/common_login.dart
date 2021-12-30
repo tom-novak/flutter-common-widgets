@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 
-class CommonLogin extends StatelessWidget {
-  final ValueChanged<String>? onSubmit;
-  final FormFieldValidator? loginValidator;
-  final FormFieldValidator? passwordValidator;
+class CommonLogin extends StatefulWidget {
+  final FormFieldValidator<String>? loginValidator;
+  final FormFieldValidator<String>? passwordValidator;
   final List<Widget>? aleternateMethods;
 
   const CommonLogin({
     Key? key,
-    this.onSubmit,
     this.loginValidator,
     this.passwordValidator,
     this.aleternateMethods,
   }) : super(key: key);
+
+  @override
+  State<CommonLogin> createState() => _CommonLoginState();
+}
+
+class _CommonLoginState extends State<CommonLogin> {
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +27,7 @@ class CommonLogin extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Form(
+            key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -32,6 +38,7 @@ class CommonLogin extends StatelessWidget {
                       labelText: 'Login',
                       hintText: 'Enter your login',
                     ),
+                    validator: widget.loginValidator,
                   ),
                 ),
                 TextFormField(
@@ -40,6 +47,7 @@ class CommonLogin extends StatelessWidget {
                     labelText: 'Password',
                     hintText: 'Enter your password',
                   ),
+                  validator: widget.passwordValidator,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 32.0),
@@ -49,9 +57,7 @@ class CommonLogin extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
-                            if (onSubmit != null) {
-                              onSubmit!('ahoj');
-                            }
+                            _formKey.currentState!.validate();
                           },
                           child: const Text('Submit'),
                         ),
@@ -59,19 +65,21 @@ class CommonLogin extends StatelessWidget {
                     ],
                   ),
                 ),
-                Divider(),
+                const Divider(),
                 Column(
                   children: [
                     Row(
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            style:
-                                Theme.of(context).elevatedButtonTheme.style!.copyWith(
-                                      backgroundColor: MaterialStateProperty.all(
-                                        Colors.amber,
-                                      ),
-                                    ),
+                            style: Theme.of(context)
+                                .elevatedButtonTheme
+                                .style!
+                                .copyWith(
+                                  backgroundColor: MaterialStateProperty.all(
+                                    Colors.amber,
+                                  ),
+                                ),
                             onPressed: () {},
                             child: const Text('Token'),
                           ),
@@ -85,12 +93,14 @@ class CommonLogin extends StatelessWidget {
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            style:
-                                Theme.of(context).elevatedButtonTheme.style!.copyWith(
-                                      backgroundColor: MaterialStateProperty.all(
-                                        Colors.red[600],
-                                      ),
-                                    ),
+                            style: Theme.of(context)
+                                .elevatedButtonTheme
+                                .style!
+                                .copyWith(
+                                  backgroundColor: MaterialStateProperty.all(
+                                    Colors.red[600],
+                                  ),
+                                ),
                             onPressed: () {},
                             child: const Text('Google'),
                           ),

@@ -58,9 +58,7 @@ class PreviewMenuPage extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
-                return PreviewLogin(onSubmit: (value) {
-                  Navigator.of(context).pop();
-                },);
+                return const PreviewLogin();
               },
             ),
           );
@@ -68,9 +66,7 @@ class PreviewMenuPage extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
-                return PreviewStartLogin(onSubmit: (value) {
-                  Navigator.of(context).pop();
-                },);
+                return const PreviewStartLogin();
               },
             ),
           );

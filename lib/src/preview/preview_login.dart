@@ -2,17 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class PreviewLogin extends StatelessWidget {
-  final ValueChanged<String>? onSubmit;
-  final FormFieldValidator? loginValidator;
-  final FormFieldValidator? passwordValidator;
-  final List<Widget>? alternateMethods;
-
   const PreviewLogin({
     Key? key,
-    this.onSubmit,
-    this.loginValidator,
-    this.passwordValidator,
-    this.alternateMethods,
   }) : super(key: key);
 
   @override
@@ -26,10 +17,12 @@ class PreviewLogin extends StatelessWidget {
         child: BaseVerticalScreen(
           appBarTitle: const Text('Sign in'),
           body: CommonLogin(
-            onSubmit: onSubmit,
-            loginValidator: loginValidator,
-            passwordValidator: passwordValidator,
-            aleternateMethods: alternateMethods,
+            loginValidator: notNullValidator,
+            passwordValidator: CompoundValidator<String>(
+              validators: [
+                notNullValidator,
+              ],
+            ).validate,
           ),
         ),
       ),

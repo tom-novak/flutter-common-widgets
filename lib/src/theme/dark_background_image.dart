@@ -1,5 +1,19 @@
 part of 'theme.dart';
 
+var _disabledInputBorder = const OutlineInputBorder(
+  borderSide: BorderSide(
+    color: Colors.grey,
+    width: 2.0,
+  ),
+);
+
+var _errorInputBorder = const OutlineInputBorder(
+  borderSide: BorderSide(
+    color: Colors.deepOrange,
+    width: 2.0,
+  ),
+);
+
 ThemeData _darkBackgroundImage(BuildContext context) {
   var textTheme = Theme.of(context).textTheme.apply(
         displayColor: Colors.white,
@@ -35,16 +49,17 @@ ThemeData _darkBackgroundImage(BuildContext context) {
             borderSide: BorderSide(
               color: Theme.of(context).colorScheme.background,
               width: 2.0,
-              style: BorderStyle.solid,
             ),
           ),
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.white,
               width: 2.0,
-              style: BorderStyle.solid,
             ),
           ),
+          errorBorder: _errorInputBorder,
+          focusedErrorBorder: _errorInputBorder,
+          disabledBorder: _disabledInputBorder,
         ),
   );
 }
