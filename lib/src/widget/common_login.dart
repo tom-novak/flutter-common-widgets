@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
+typedef SubmitCallback = Function(String login, String password);
+
 class CommonLogin extends StatefulWidget {
+  final SubmitCallback? onSubmit;
   final FormFieldValidator<String>? loginValidator;
   final FormFieldValidator<String>? passwordValidator;
   final List<Widget>? aleternateMethods;
 
   const CommonLogin({
     Key? key,
+    this.onSubmit,
     this.loginValidator,
     this.passwordValidator,
     this.aleternateMethods,
@@ -18,6 +22,8 @@ class CommonLogin extends StatefulWidget {
 
 class _CommonLoginState extends State<CommonLogin> {
   final _formKey = GlobalKey<FormState>();
+  final _loginController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +44,7 @@ class _CommonLoginState extends State<CommonLogin> {
                       labelText: 'Login',
                       hintText: 'Enter your login',
                     ),
+                    controller: _loginController,
                     validator: widget.loginValidator,
                   ),
                 ),
@@ -47,6 +54,7 @@ class _CommonLoginState extends State<CommonLogin> {
                     labelText: 'Password',
                     hintText: 'Enter your password',
                   ),
+                  controller: _passwordController,
                   validator: widget.passwordValidator,
                 ),
                 Padding(
@@ -57,7 +65,13 @@ class _CommonLoginState extends State<CommonLogin> {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
-                            _formKey.currentState!.validate();
+                            if (_formKey.currentState!.validate() &&
+                                widget.onSubmit != null) {
+                              widget.onSubmit!(
+                                _loginController.text,
+                                _passwordController.text,
+                              );
+                            }
                           },
                           child: const Text('Submit'),
                         ),
