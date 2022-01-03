@@ -4,6 +4,7 @@ export 'common_list_page.dart';
 export 'common_list_tile.dart';
 export 'common_login.dart';
 export 'dark_background_image_decoration.dart';
+export 'image_card.dart';
 export 'labeled_section.dart';
 export 'loading_list.dart';
 export 'search_form.dart';

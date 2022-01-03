@@ -30,7 +30,7 @@ class PreviewCardsPage extends StatelessWidget {
           padding: item != items.last
               ? const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0)
               : const EdgeInsets.all(8.0),
-          child: CommonCard(
+          child: ImageCard(
             title: item.title,
             description: item.description,
             image: const AssetImage(
