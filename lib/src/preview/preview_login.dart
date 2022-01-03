@@ -16,7 +16,7 @@ class _PreviewLoginState extends State<PreviewLogin> {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: AppTheme.darkBackgroundImage(context),
+      data: Theme.of(context).darkBackgroundImage,
       child: Container(
         decoration: BoxDecoration(
           image: DarkBackgroundDecorationImage(),
