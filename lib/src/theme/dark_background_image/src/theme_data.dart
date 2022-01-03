@@ -17,8 +17,8 @@ var _errorInputBorder = const OutlineInputBorder(
 
 ThemeData darkBackgroundImage(ThemeData base) {
   var textTheme = base.textTheme.apply(
-        displayColor: Colors.red,
-        bodyColor: Colors.red,
+        displayColor: Colors.white,
+        bodyColor: Colors.white,
       );
 
   return base.copyWith(
