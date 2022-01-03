@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Common App',
-      theme: AppTheme.defaultLight(),
+      theme: ThemeData().cyanLightOne,
       home: const PreviewMainScreen(),
     );
   }

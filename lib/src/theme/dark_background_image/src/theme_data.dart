@@ -1,4 +1,5 @@
-part of 'theme.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 var _disabledInputBorder = const OutlineInputBorder(
   borderSide: BorderSide(
@@ -14,15 +15,15 @@ var _errorInputBorder = const OutlineInputBorder(
   ),
 );
 
-ThemeData _darkBackgroundImage(BuildContext context) {
-  var textTheme = Theme.of(context).textTheme.apply(
-        displayColor: Colors.white,
-        bodyColor: Colors.white,
+ThemeData darkBackgroundImage(ThemeData base) {
+  var textTheme = base.textTheme.apply(
+        displayColor: Colors.red,
+        bodyColor: Colors.red,
       );
 
-  return Theme.of(context).copyWith(
+  return base.copyWith(
     textTheme: textTheme,
-    colorScheme: Theme.of(context).colorScheme.copyWith(
+    colorScheme: base.colorScheme.copyWith(
           primary: Colors.white,
           background: Colors.transparent,
         ),
@@ -32,14 +33,14 @@ ThemeData _darkBackgroundImage(BuildContext context) {
       systemOverlayStyle: SystemUiOverlayStyle.light,
       backgroundColor: Colors.black.withOpacity(0.5),
     ),
-    dividerTheme: Theme.of(context).dividerTheme.copyWith(
+    dividerTheme: base.dividerTheme.copyWith(
           color: Colors.white,
           thickness: 2.0,
           space: 32.0,
           indent: 64.0,
           endIndent: 64.0,
         ),
-    inputDecorationTheme: Theme.of(context).inputDecorationTheme.copyWith(
+    inputDecorationTheme: base.inputDecorationTheme.copyWith(
           filled: true,
           fillColor: Colors.black.withOpacity(0.5),
           labelStyle: const TextStyle(
@@ -47,7 +48,7 @@ ThemeData _darkBackgroundImage(BuildContext context) {
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.background,
+              color: base.colorScheme.background,
               width: 2.0,
             ),
           ),

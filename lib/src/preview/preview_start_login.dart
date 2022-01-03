@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class PreviewStartLogin extends StatelessWidget {
-
   const PreviewStartLogin({
     Key? key,
   }) : super(key: key);
@@ -11,7 +10,7 @@ class PreviewStartLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: AppTheme.darkBackgroundImage(context),
+      data: Theme.of(context).darkBackgroundImage,
       child: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: Container(
