@@ -4,7 +4,7 @@ class SearchForm extends StatelessWidget {
   final Key? formKey;
   final TextInputType? textInputType;
   final String? hintText;
-  late TextEditingController? controller;
+  final TextEditingController controller;
   final InputDecoration? inputDecoration;
   final Icon? clearWidget;
 
@@ -15,9 +15,9 @@ class SearchForm extends StatelessWidget {
     TextEditingController? controller,
     this.inputDecoration,
     this.clearWidget,
-  }) : super(key: key) {
-    this.controller = controller ?? TextEditingController();
-  }
+  })
+      : controller = controller ?? TextEditingController(),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class SearchForm extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                controller?.clear();
+                controller.clear();
               },
             ),
           ),

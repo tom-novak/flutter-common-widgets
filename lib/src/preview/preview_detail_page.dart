@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
@@ -12,7 +13,9 @@ class PreviewDetailPage extends StatelessWidget {
           pinned: true,
           stretch: true,
           onStretchTrigger: () async {
-            print('Load new data');
+            if (kDebugMode) {
+              print('Load new data');
+            }
           },
           expandedHeight: 200,
           flexibleSpace: FlexibleSpaceBar(
