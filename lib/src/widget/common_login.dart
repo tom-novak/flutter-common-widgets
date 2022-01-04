@@ -86,14 +86,11 @@ class _CommonLoginState extends State<CommonLogin> {
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            style: Theme.of(context)
-                                .elevatedButtonTheme
-                                .style!
-                                .copyWith(
+                            style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
                                   backgroundColor: MaterialStateProperty.all(
                                     Colors.amber,
                                   ),
-                                ),
+                                ) ?? ElevatedButton.styleFrom(primary: Colors.amber),
                             onPressed: () {},
                             child: const Text('Token'),
                           ),
@@ -107,14 +104,11 @@ class _CommonLoginState extends State<CommonLogin> {
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            style: Theme.of(context)
-                                .elevatedButtonTheme
-                                .style!
-                                .copyWith(
-                                  backgroundColor: MaterialStateProperty.all(
-                                    Colors.red[600],
-                                  ),
-                                ),
+                            style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
+                              backgroundColor: MaterialStateProperty.all(
+                                Colors.red[600],
+                              ),
+                            ) ?? ElevatedButton.styleFrom(primary: Colors.red[600]),
                             onPressed: () {},
                             child: const Text('Google'),
                           ),

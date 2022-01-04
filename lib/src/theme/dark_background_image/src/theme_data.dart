@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-var _disabledInputBorder = const OutlineInputBorder(
+const _disabledInputBorder = OutlineInputBorder(
   borderSide: BorderSide(
     color: Colors.grey,
     width: 2.0,
   ),
 );
 
-var _errorInputBorder = const OutlineInputBorder(
+const _errorInputBorder = OutlineInputBorder(
   borderSide: BorderSide(
     color: Colors.deepOrange,
     width: 2.0,
@@ -22,13 +22,13 @@ ThemeData darkBackgroundImage(ThemeData base) {
       );
 
   return base.copyWith(
+    errorColor: Colors.deepOrange,
     textTheme: textTheme,
     colorScheme: base.colorScheme.copyWith(
           primary: Colors.white,
-          background: Colors.transparent,
         ),
     scaffoldBackgroundColor: Colors.transparent,
-    appBarTheme: AppBarTheme(
+    appBarTheme: base.appBarTheme.copyWith(
       elevation: 0,
       systemOverlayStyle: SystemUiOverlayStyle.light,
       backgroundColor: Colors.black.withOpacity(0.5),
