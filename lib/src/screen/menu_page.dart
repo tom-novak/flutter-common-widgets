@@ -2,27 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class MenuPage extends StatelessWidget {
-  final List<CommonItem> items;
-  final ValueChanged<CommonItem>? onTap;
-  final ValueChanged<CommonItem>? onLongPress;
+  final List<Widget> tiles;
 
   const MenuPage(
-      {Key? key, List<CommonItem>? items, this.onTap, this.onLongPress})
-      : items = items ?? const <CommonItem>[],
+      {Key? key, List<Widget>? tiles})
+      : tiles = tiles ?? const <CommonListTile>[],
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BaseVerticalPage(
       content: ListView.separated(
-        itemCount: items.length,
+        itemCount: tiles.length,
         separatorBuilder: (context, index) => const Divider(),
-        itemBuilder: (context, index) => CommonListTile(
-          item: items[index],
-          onTap: () => onTap != null ? onTap!(items[index]) : null,
-          onLongPress: () =>
-              onLongPress != null ? onLongPress!(items[index]) : null,
-        ),
+        itemBuilder: (context, index) => tiles[index],
       ),
     );
   }
