@@ -38,4 +38,4 @@ jobs:
         run: flutter test
 
       - name: Run Android build
-        run: flutter build apk
+        run: flutter build apk --target example/main.dart
