@@ -37,7 +37,7 @@ final mainSlots = <PageSlot>[
   PageSlot(
     icon: const Icon(Icons.menu),
     label: 'Next',
-    content: PreviewMenuPage(),
+    content: const PreviewMenuPage(),
   ),
 ];
 
