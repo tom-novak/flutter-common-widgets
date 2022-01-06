@@ -1,0 +1,8 @@
+{
+    "title": "Hello World!",
+    "@title": {
+        "description": "Title for the Common package",
+        "type": "text"
+    },
+    "something_wrong": "Something wrong"
+}

@@ -10,6 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
   flutter_conditional_rendering: ^2.0.0
   package_info_plus: ^1.3.0
   provider: ^6.0.2
@@ -25,6 +28,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  generate: true
 
   # To add assets to your package, add an assets section, like this:
   assets:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class PreviewCardsPage extends StatelessWidget {
@@ -14,7 +15,7 @@ class PreviewCardsPage extends StatelessWidget {
     var items = List<CommonItem>.generate(
       20,
       (index) => CommonItem(
-        title: 'Item $index',
+        title: '${AppLocalizations.of(context)!.something_wrong} $index',
         description:
             'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris tincidunt sem sed arcu. Duis pulvinar. In dapibus augue non sapien. Nunc tincidunt ante vitae massa. Phasellus et lorem id felis nonummy placerat. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede.',
       ),

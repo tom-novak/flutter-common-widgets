@@ -1,0 +1,1 @@
+export 'src/gen_l10n/common_localizations.dart';
