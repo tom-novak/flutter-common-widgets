@@ -17,13 +17,13 @@ class PreviewStartSignInScreen extends StatelessWidget {
           decoration: BoxDecoration(
             image: DarkBackgroundDecorationImage(),
           ),
-          child: const BaseVerticalScreen(
+          child: BaseVerticalScreen(
             body: CommonLogin(
               form: LoginPasswordForm(
-                loginValidator: notNullValidator,
-                passwordValidator: notNullValidator,
+                loginValidator: (value) => notNullValidator(context, value),
+                passwordValidator: (value) => notNullValidator(context, value),
               ),
-              alternativeActions: PreviewAlternativeSignInActions(),
+              alternativeActions: const PreviewAlternativeSignInActions(),
             ),
           ),
         ),

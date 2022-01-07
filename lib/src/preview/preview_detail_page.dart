@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class PreviewDetailPage extends StatelessWidget {
@@ -14,7 +15,7 @@ class PreviewDetailPage extends StatelessWidget {
           stretch: true,
           onStretchTrigger: () async {
             if (kDebugMode) {
-              print('Load new data');
+              print(AppLocalizations.of(context)!.loadNewData);
             }
           },
           expandedHeight: 200,
@@ -26,9 +27,9 @@ class PreviewDetailPage extends StatelessWidget {
                   flex: 3,
                   child: Container(),
                 ),
-                const Flexible(
+                Flexible(
                   flex: 1,
-                  child: Text('Item detail'),
+                  child: Text(AppLocalizations.of(context)!.itemDetail),
                 ),
                 Flexible(
                   flex: 1,

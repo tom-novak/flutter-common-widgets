@@ -100,11 +100,149 @@ abstract class AppLocalizations {
   /// **'Hello World!'**
   String get title;
 
-  /// No description provided for @something_wrong.
+  /// No description provided for @somethingWrong.
   ///
   /// In en, this message translates to:
   /// **'Something wrong'**
   String get somethingWrong;
+
+  /// No description provided for @requiredField.
+  ///
+  /// In en, this message translates to:
+  /// **'Required field'**
+  String get requiredField;
+
+  /// No description provided for @appTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview app'**
+  String get appTitle;
+
+  /// No description provided for @dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Dashboard'**
+  String get dashboard;
+
+  /// No description provided for @list.
+  ///
+  /// In en, this message translates to:
+  /// **'List'**
+  String get list;
+
+  /// No description provided for @cards.
+  ///
+  /// In en, this message translates to:
+  /// **'Cards'**
+  String get cards;
+
+  /// No description provided for @detail.
+  ///
+  /// In en, this message translates to:
+  /// **'Detail'**
+  String get detail;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
+  /// No description provided for @loginHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your login'**
+  String get loginHint;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @passwordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password'**
+  String get passwordHint;
+
+  /// No description provided for @submit.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit'**
+  String get submit;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// No description provided for @token.
+  ///
+  /// In en, this message translates to:
+  /// **'Token'**
+  String get token;
+
+  /// No description provided for @google.
+  ///
+  /// In en, this message translates to:
+  /// **'Google'**
+  String get google;
+
+  /// No description provided for @loremIpsumLong.
+  ///
+  /// In en, this message translates to:
+  /// **'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris tincidunt sem sed arcu. Duis pulvinar. In dapibus augue non sapien. Nunc tincidunt ante vitae massa. Phasellus et lorem id felis nonummy placerat. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede.'**
+  String get loremIpsumLong;
+
+  /// No description provided for @loadNewData.
+  ///
+  /// In en, this message translates to:
+  /// **'Load new data'**
+  String get loadNewData;
+
+  /// No description provided for @itemDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'Item detail'**
+  String get itemDetail;
+
+  /// No description provided for @loremIpsumShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Lorem ipsum dolor sit amet'**
+  String get loremIpsumShort;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get signIn;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 final aboutSlot = PageSlot(
@@ -47,6 +48,7 @@ class PreviewMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScreen(
+      appBarTitle: Text(AppLocalizations.of(context)!.appTitle),
       slots: mainSlots,
     );
   }

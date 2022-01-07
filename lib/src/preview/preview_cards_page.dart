@@ -17,7 +17,7 @@ class PreviewCardsPage extends StatelessWidget {
       (index) => CommonItem(
         title: '${AppLocalizations.of(context)!.somethingWrong} $index',
         description:
-            'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris tincidunt sem sed arcu. Duis pulvinar. In dapibus augue non sapien. Nunc tincidunt ante vitae massa. Phasellus et lorem id felis nonummy placerat. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede.',
+            AppLocalizations.of(context)!.loremIpsumLong,
       ),
     );
     return CommonListPage(

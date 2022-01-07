@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class PreviewListPage extends StatelessWidget {
@@ -23,7 +24,7 @@ class PreviewListPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           title: 'Item $index',
-          subtitle: 'Lorem ipsum dolor sit amet',
+          subtitle: AppLocalizations.of(context)!.loremIpsumShort,
         ),
       ),
       widgetStateBuilder: (context) {
