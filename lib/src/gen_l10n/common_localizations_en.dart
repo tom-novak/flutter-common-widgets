@@ -11,5 +11,5 @@ class AppLocalizationsEn extends AppLocalizations {
   String get title => 'Hello World!';
 
   @override
-  String get something_wrong => 'Something wrong';
+  String get somethingWrong => 'Something wrong';
 }

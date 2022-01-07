@@ -19,7 +19,7 @@ class CommonErrorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return TitledMessage(
       title: label,
-      message: AppLocalizations.of(context)!.something_wrong,
+      message: AppLocalizations.of(context)!.somethingWrong,
     );
   }
 }

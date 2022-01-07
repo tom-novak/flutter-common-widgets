@@ -11,5 +11,5 @@ class AppLocalizationsCs extends AppLocalizations {
   String get title => 'Ahoj světe!';
 
   @override
-  String get something_wrong => 'Něco se pokazilo';
+  String get somethingWrong => 'Něco se pokazilo';
 }
