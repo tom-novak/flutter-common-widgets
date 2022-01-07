@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
-class PreviewStartLogin extends StatelessWidget {
-  const PreviewStartLogin({
+class PreviewStartSignInScreen extends StatelessWidget {
+  const PreviewStartSignInScreen({
     Key? key,
   }) : super(key: key);
 
@@ -19,8 +19,11 @@ class PreviewStartLogin extends StatelessWidget {
           ),
           child: const BaseVerticalScreen(
             body: CommonLogin(
-              loginValidator: notNullValidator,
-              passwordValidator: notNullValidator,
+              form: LoginPasswordForm(
+                loginValidator: notNullValidator,
+                passwordValidator: notNullValidator,
+              ),
+              alternativeActions: PreviewAlternativeSignInActions(),
             ),
           ),
         ),
