@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class CommonErrorPage extends StatelessWidget {
@@ -18,7 +19,7 @@ class CommonErrorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return TitledMessage(
       title: label,
-      message: 'Something wrong',
+      message: AppLocalizations.of(context)!.something_wrong,
     );
   }
 }
