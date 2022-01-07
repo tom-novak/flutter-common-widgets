@@ -25,6 +25,14 @@ class _CommonLoginState extends State<CommonLogin> {
   final _loginController = TextEditingController();
   final _passwordController = TextEditingController();
 
+
+  @override
+  void dispose() {
+    super.dispose();
+    _loginController.dispose();
+    _passwordController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -46,6 +54,8 @@ class _CommonLoginState extends State<CommonLogin> {
                     ),
                     controller: _loginController,
                     validator: widget.loginValidator,
+                    textInputAction: TextInputAction.next,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                 ),
                 TextFormField(
@@ -56,6 +66,8 @@ class _CommonLoginState extends State<CommonLogin> {
                   ),
                   controller: _passwordController,
                   validator: widget.passwordValidator,
+                  textInputAction: TextInputAction.done,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 32.0),
