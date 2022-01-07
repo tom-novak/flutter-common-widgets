@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 
 typedef SubmitCallback = Function(String login, String password);
 
@@ -39,9 +40,9 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),
             child: TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Login',
-                hintText: 'Enter your login',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.login,
+                hintText: AppLocalizations.of(context)!.loginHint,
               ),
               controller: _loginController,
               validator: widget.loginValidator,
@@ -51,9 +52,9 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
           ),
           TextFormField(
             obscureText: true,
-            decoration: const InputDecoration(
-              labelText: 'Password',
-              hintText: 'Enter your password',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.password,
+              hintText: AppLocalizations.of(context)!.passwordHint,
             ),
             controller: _passwordController,
             validator: widget.passwordValidator,
@@ -76,7 +77,7 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
                         );
                       }
                     },
-                    child: const Text('Submit'),
+                    child: Text(AppLocalizations.of(context)!.submit),
                   ),
                 ),
               ],

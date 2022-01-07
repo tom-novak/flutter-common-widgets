@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 
 class PreviewAlternativeSignInActions extends StatelessWidget {
   const PreviewAlternativeSignInActions({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class PreviewAlternativeSignInActions extends StatelessWidget {
                         ) ??
                     ElevatedButton.styleFrom(primary: Colors.amber),
                 onPressed: () {},
-                child: const Text('Token'),
+                child: Text(AppLocalizations.of(context)!.token),
               ),
             ),
           ],
@@ -37,7 +38,7 @@ class PreviewAlternativeSignInActions extends StatelessWidget {
                         ) ??
                     ElevatedButton.styleFrom(primary: Colors.red[600]),
                 onPressed: () {},
-                child: const Text('Google'),
+                child: Text(AppLocalizations.of(context)!.google),
               ),
             ),
           ],

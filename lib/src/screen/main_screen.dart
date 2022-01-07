@@ -15,11 +15,15 @@ class PageSlot {
 }
 
 class MainScreen extends StatefulWidget {
+  final PreferredSizeWidget? appBar;
+  final Widget? appBarTitle;
   final List<PageSlot> slots;
 
   const MainScreen({
     Key? key,
     required this.slots,
+    this.appBar,
+    this.appBarTitle,
   })  : assert(slots.length <= 5, 'Slots count cannot be bigger than 5.'),
         super(key: key);
 
@@ -33,9 +37,10 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Preview app'),
-      ),
+      appBar: widget.appBar ??
+          (widget.appBarTitle != null
+              ? AppBar(title: widget.appBarTitle)
+              : null),
       body: widget.slots[_selectedIndex].content,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

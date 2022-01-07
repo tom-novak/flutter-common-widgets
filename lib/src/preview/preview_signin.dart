@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class PreviewSignIn extends StatefulWidget {
@@ -22,11 +23,11 @@ class _PreviewSignInState extends State<PreviewSignIn> {
           image: DarkBackgroundDecorationImage(),
         ),
         child: BaseVerticalScreen(
-          appBarTitle: const Text('Sign in'),
+          appBarTitle: Text(AppLocalizations.of(context)!.signIn),
           body: CommonLogin(
             form: LoginPasswordForm(
-              loginValidator: notNullValidator,
-              passwordValidator: notNullValidator,
+              loginValidator: (value) => notNullValidator(context, value),
+              passwordValidator: (value) => notNullValidator(context, value),
               onSubmit: (login, value) {
                 setState(() {
                   widgetState = WidgetState.loading;

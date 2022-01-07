@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 
 class SearchForm extends StatelessWidget {
   final Key? formKey;
@@ -33,7 +34,7 @@ class SearchForm extends StatelessWidget {
                   controller: controller,
                   decoration: inputDecoration ?? InputDecoration(
                     border: const UnderlineInputBorder(),
-                    hintText: hintText ?? 'Search',
+                    hintText: hintText ?? AppLocalizations.of(context)!.search,
                   ),
                   keyboardType: TextInputType.number,
                 ),
