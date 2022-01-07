@@ -1,5 +1,6 @@
 export 'preview_about_page.dart';
 export 'preview_alternative_signin_actions.dart';
+export 'preview_app.dart';
 export 'preview_cards_page.dart';
 export 'preview_dashboard_page.dart';
 export 'preview_detail_page.dart';
