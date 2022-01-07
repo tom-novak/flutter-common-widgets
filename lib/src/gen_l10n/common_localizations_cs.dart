@@ -71,14 +71,14 @@ class AppLocalizationsCs extends AppLocalizations {
   String get loremIpsumLong => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris tincidunt sem sed arcu. Duis pulvinar. In dapibus augue non sapien. Nunc tincidunt ante vitae massa. Phasellus et lorem id felis nonummy placerat. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede.';
 
   @override
-  String get loadNewData => 'Load new data';
+  String get loadNewData => 'Načti nová data';
 
   @override
-  String get itemDetail => 'Item detail';
+  String get itemDetail => 'Detail položky';
 
   @override
   String get loremIpsumShort => 'Lorem ipsum dolor sit amet';
 
   @override
-  String get signIn => 'Sign in';
+  String get signIn => 'Přihlášení';
 }
