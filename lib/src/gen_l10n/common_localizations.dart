@@ -104,7 +104,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Something wrong'**
-  String get something_wrong;
+  String get somethingWrong;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
