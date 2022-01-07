@@ -4,13 +4,13 @@ import 'package:flutter_common_widgets/src/screen/menu_page.dart';
 import 'package:provider/provider.dart';
 
 final menuItems = <String, CommonItem>{
-  'login': CommonItem(
+  'signin': CommonItem(
     icon: const Icon(Icons.login),
-    title: 'Login',
+    title: 'Sign In',
   ),
-  'start_login': CommonItem(
+  'start_signin': CommonItem(
     icon: const Icon(Icons.login),
-    title: 'Start screen login',
+    title: 'Start screen sign in',
   ),
   'profile': CommonItem(
     icon: const Icon(Icons.info),
@@ -41,24 +41,24 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
     return MenuPage(
       tiles: [
         CommonListTile(
-          item: menuItems['login'],
+          item: menuItems['signin'],
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return const PreviewLogin();
+                  return const PreviewSignIn();
                 },
               ),
             );
           },
         ),
         CommonListTile(
-          item: menuItems['start_login'],
+          item: menuItems['start_signin'],
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return const PreviewStartLogin();
+                  return const PreviewStartSignInScreen();
                 },
               ),
             );

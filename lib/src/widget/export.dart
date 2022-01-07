@@ -7,6 +7,7 @@ export 'dark_background_image_decoration.dart';
 export 'image_card.dart';
 export 'labeled_section.dart';
 export 'loading_list.dart';
+export 'login_password_form.dart';
 export 'search_form.dart';
 export 'shimmer_list.dart';
 export 'titled_message.dart';
