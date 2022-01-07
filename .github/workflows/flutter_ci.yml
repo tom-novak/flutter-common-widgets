@@ -37,5 +37,5 @@ jobs:
       - name: Run flutter tests
         run: flutter test
 
-      - name: Run Android build
+      #- name: Run Android build
         #run: flutter build apk --target=example/lib/main.dart
