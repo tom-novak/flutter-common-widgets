@@ -15,9 +15,8 @@ class PreviewCardsPage extends StatelessWidget {
     var items = List<CommonItem>.generate(
       20,
       (index) => CommonItem(
-        title: '${AppLocalizations.of(context)!.somethingWrong} $index',
-        description:
-            AppLocalizations.of(context)!.loremIpsumLong,
+        title: AppLocalizations.of(context)!.itemIndex(index),
+        description: AppLocalizations.of(context)!.loremIpsumLong,
       ),
     );
     return CommonListPage(

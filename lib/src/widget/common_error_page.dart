@@ -10,7 +10,7 @@ class CommonErrorPage extends StatelessWidget {
     Key? key,
     this.label,
     this.description,
-  }): super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

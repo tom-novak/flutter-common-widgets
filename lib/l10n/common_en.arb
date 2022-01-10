@@ -27,5 +27,30 @@
     "loadNewData": "Load new data",
     "itemDetail": "Item detail",
     "loremIpsumShort": "Lorem ipsum dolor sit amet",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "sectionNumber": "Section {index}",
+    "@sectionNumber" : {
+        "placeholders" : {
+            "index" : {
+                "type" : "int"
+            }
+        }
+    },
+    "sectionIndexContent": "Section {index} content",
+    "@sectionIndexContent" : {
+        "placeholders" : {
+            "index" : {
+                "type" : "int"
+            }
+        }
+    },
+    "itemIndex": "Item {index}",
+    "@itemIndex" : {
+        "placeholders" : {
+            "index" : {
+                "type" : "int"
+            }
+        }
+    },
+    "startScreenSignIn" : "Start screen sign in"
 }

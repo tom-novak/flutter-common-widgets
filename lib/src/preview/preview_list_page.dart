@@ -23,7 +23,7 @@ class PreviewListPage extends StatelessWidget {
             height: 48.0,
             fit: BoxFit.cover,
           ),
-          title: 'Item $index',
+          title: AppLocalizations.of(context)!.itemIndex(index),
           subtitle: AppLocalizations.of(context)!.loremIpsumShort,
         ),
       ),

@@ -9,15 +9,15 @@ class SearchForm extends StatelessWidget {
   final InputDecoration? inputDecoration;
   final Icon? clearWidget;
 
-  SearchForm({Key? key,
+  SearchForm({
+    Key? key,
     this.formKey,
     this.textInputType,
     this.hintText,
     TextEditingController? controller,
     this.inputDecoration,
     this.clearWidget,
-  })
-      : controller = controller ?? TextEditingController(),
+  })  : controller = controller ?? TextEditingController(),
         super(key: key);
 
   @override
@@ -32,10 +32,12 @@ class SearchForm extends StatelessWidget {
               children: [
                 TextFormField(
                   controller: controller,
-                  decoration: inputDecoration ?? InputDecoration(
-                    border: const UnderlineInputBorder(),
-                    hintText: hintText ?? AppLocalizations.of(context)!.search,
-                  ),
+                  decoration: inputDecoration ??
+                      InputDecoration(
+                        border: const UnderlineInputBorder(),
+                        hintText:
+                            hintText ?? AppLocalizations.of(context)!.search,
+                      ),
                   keyboardType: TextInputType.number,
                 ),
               ],
@@ -43,18 +45,19 @@ class SearchForm extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.centerRight,
-            child: clearWidget ?? InkWell(
-              child: const SizedBox(
-                width: 48,
-                height: 48,
-                child: Icon(
-                  Icons.clear,
+            child: clearWidget ??
+                InkWell(
+                  child: const SizedBox(
+                    width: 48,
+                    height: 48,
+                    child: Icon(
+                      Icons.clear,
+                    ),
+                  ),
+                  onTap: () {
+                    controller.clear();
+                  },
                 ),
-              ),
-              onTap: () {
-                controller.clear();
-              },
-            ),
           ),
         ],
       ),
