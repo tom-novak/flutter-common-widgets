@@ -27,5 +27,30 @@
     "loadNewData": "Načti nová data",
     "itemDetail": "Detail položky",
     "loremIpsumShort": "Lorem ipsum dolor sit amet",
-    "signIn": "Přihlášení"
+    "signIn": "Přihlášení",
+    "sectionNumber": "Sekce {index}",
+    "@sectionNumber" : {
+        "placeholders" : {
+            "index" : {
+                "type" : "int"
+            }
+        }
+    },
+    "sectionIndexContent": "Obsah {index}. sekce",
+    "@sectionIndexContent" : {
+        "placeholders" : {
+            "index" : {
+                "type" : "int"
+            }
+        }
+    },
+    "itemIndex": "Položka {index}",
+    "@itemIndex" : {
+        "placeholders" : {
+            "index" : {
+                "type" : "int"
+            }
+        }
+    },
+    "startScreenSignIn" : "Přihlášení po startu"
 }

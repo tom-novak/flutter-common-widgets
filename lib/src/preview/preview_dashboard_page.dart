@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class PreviewDashboardPage extends StatelessWidget {
@@ -11,11 +12,11 @@ class PreviewDashboardPage extends StatelessWidget {
         children: List<Widget>.generate(
           5,
           (index) => LabeledSection(
-            label: 'Section $index',
+            label: AppLocalizations.of(context)!.sectionNumber(index),
             child: SizedBox(
               height: 120,
               child: Center(
-                child: Text('Section $index content'),
+                child: Text(AppLocalizations.of(context)!.sectionIndexContent(index)),
               ),
             ),
           ),

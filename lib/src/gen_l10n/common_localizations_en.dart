@@ -81,4 +81,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get signIn => 'Sign in';
+
+  @override
+  String sectionNumber(int index) {
+    return 'Section $index';
+  }
+
+  @override
+  String sectionIndexContent(int index) {
+    return 'Section $index content';
+  }
+
+  @override
+  String itemIndex(int index) {
+    return 'Item $index';
+  }
+
+  @override
+  String get startScreenSignIn => 'Start screen sign in';
 }

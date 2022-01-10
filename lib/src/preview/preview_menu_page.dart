@@ -1,26 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 import 'package:flutter_common_widgets/src/screen/menu_page.dart';
 import 'package:provider/provider.dart';
-
-final menuItems = <String, CommonItem>{
-  'signin': CommonItem(
-    icon: const Icon(Icons.login),
-    title: 'Sign In',
-  ),
-  'start_signin': CommonItem(
-    icon: const Icon(Icons.login),
-    title: 'Start screen sign in',
-  ),
-  'profile': CommonItem(
-    icon: const Icon(Icons.info),
-    title: 'Profile',
-  ),
-  'about': CommonItem(
-    icon: const Icon(Icons.info),
-    title: 'About',
-  ),
-};
 
 class PreviewMenuPage extends StatefulWidget {
   const PreviewMenuPage({Key? key}) : super(key: key);
@@ -38,10 +20,14 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return MenuPage(
       tiles: [
         CommonListTile(
-          item: menuItems['signin'],
+          item: CommonItem(
+            icon: const Icon(Icons.login),
+            title: l10n!.signIn,
+          ),
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
@@ -53,7 +39,10 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
           },
         ),
         CommonListTile(
-          item: menuItems['start_signin'],
+          item: CommonItem(
+            icon: const Icon(Icons.login),
+            title: l10n.startScreenSignIn,
+          ),
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
@@ -65,13 +54,16 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
           },
         ),
         CommonListTile(
-          item: menuItems['profile'],
+          item: CommonItem(
+            icon: const Icon(Icons.info),
+            title: l10n.profile,
+          ),
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
                   return BaseVerticalScreen(
-                    appBarTitle: Text(menuItems['profile']!.title!),
+                    appBarTitle: Text(l10n.profile),
                     body: const PreviewProfilePage(),
                   );
                 },
@@ -85,8 +77,9 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
               applicationName: appPackageInfo.appName ?? '',
               applicationVersion:
                   '${appPackageInfo.version ?? ''} (${appPackageInfo.buildNumber ?? ''})',
-              child:
-                  appPackageInfo.data == null ? const Text('About...') : null,
+              child: appPackageInfo.data == null
+                  ? Text('${l10n.about} ...')
+                  : null,
             );
           },
         ),

@@ -81,4 +81,22 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get signIn => 'Přihlášení';
+
+  @override
+  String sectionNumber(int index) {
+    return 'Sekce $index';
+  }
+
+  @override
+  String sectionIndexContent(int index) {
+    return 'Obsah $index. sekce';
+  }
+
+  @override
+  String itemIndex(int index) {
+    return 'Položka $index';
+  }
+
+  @override
+  String get startScreenSignIn => 'Přihlášení po startu';
 }

@@ -69,11 +69,12 @@ class PreviewDetailPage extends StatelessWidget {
             children: List<Widget>.generate(
               20,
               (index) => LabeledSection(
-                label: 'Section $index',
+                label: AppLocalizations.of(context)!.sectionNumber(index),
                 child: SizedBox(
                   height: 64,
                   child: Center(
-                    child: Text('Section $index content'),
+                    child: Text(AppLocalizations.of(context)!
+                        .sectionIndexContent(index)),
                   ),
                 ),
               ),

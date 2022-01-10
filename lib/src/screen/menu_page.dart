@@ -4,8 +4,7 @@ import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 class MenuPage extends StatelessWidget {
   final List<Widget> tiles;
 
-  const MenuPage(
-      {Key? key, List<Widget>? tiles})
+  const MenuPage({Key? key, List<Widget>? tiles})
       : tiles = tiles ?? const <CommonListTile>[],
         super(key: key);
 

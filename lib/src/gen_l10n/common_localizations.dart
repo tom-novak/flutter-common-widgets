@@ -243,6 +243,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign in'**
   String get signIn;
+
+  /// No description provided for @sectionNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Section {index}'**
+  String sectionNumber(int index);
+
+  /// No description provided for @sectionIndexContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Section {index} content'**
+  String sectionIndexContent(int index);
+
+  /// No description provided for @itemIndex.
+  ///
+  /// In en, this message translates to:
+  /// **'Item {index}'**
+  String itemIndex(int index);
+
+  /// No description provided for @startScreenSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Start screen sign in'**
+  String get startScreenSignIn;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
