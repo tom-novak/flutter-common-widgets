@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
+import 'package:provider/provider.dart';
 
 class PreviewSignIn extends StatefulWidget {
   const PreviewSignIn({
@@ -28,11 +29,15 @@ class _PreviewSignInState extends State<PreviewSignIn> {
             form: LoginPasswordForm(
               loginValidator: (value) => notNullValidator(context, value),
               passwordValidator: (value) => notNullValidator(context, value),
+              widgetState: widgetState,
               onSubmit: (login, value) {
                 setState(() {
                   widgetState = WidgetState.loading;
-                  Future.delayed(const Duration(milliseconds: 500))
-                      .then((value) => widgetState = WidgetState.content);
+                });
+                Future.delayed(const Duration(milliseconds: 700))
+                    .then((value) {
+                  Provider.of<NeedsRestrictedContent>(context, listen: false)
+                      .value = false;
                 });
               },
             ),

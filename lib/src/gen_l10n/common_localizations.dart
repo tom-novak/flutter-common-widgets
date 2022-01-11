@@ -267,6 +267,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start screen sign in'**
   String get startScreenSignIn;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

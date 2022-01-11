@@ -99,4 +99,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get startScreenSignIn => 'Přihlášení po startu';
+
+  @override
+  String get logout => 'Odhlásit';
 }
