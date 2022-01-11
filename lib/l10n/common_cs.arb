@@ -54,5 +54,6 @@
     },
     "startScreenSignIn" : "Přihlášení po startu",
     "logout": "Odhlásit",
-    "logoutProgress": "Odhlašování"
+    "logoutProgress": "Odhlašování",
+    "ok": "Ok"
 }

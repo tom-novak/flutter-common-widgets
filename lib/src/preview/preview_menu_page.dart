@@ -84,16 +84,28 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
               return ListTile(
                 title: Text(AppLocalizations.of(context)!.logout),
                 onTap: () {
-                  Navigator.of(context).push(
-                    ProgressIndicatorOverlay(
+                  showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (context) => ProgressIndicatorOverlay(
                       label: AppLocalizations.of(context)!.logoutProgress,
                     ),
                   );
-                  Future.delayed(const Duration(milliseconds: 1000))
+                  Future.delayed(const Duration(milliseconds: 500))
                       .then((value) {
                     Navigator.of(context).pop();
-                    Provider.of<UserInfo>(context, listen: false)
-                        .updateWith(type: UserType.anonymous);
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      useSafeArea: false,
+                      builder: (context) => CommonErrorScreen(
+                        label: AppLocalizations.of(context)!.error,
+                        description:
+                            AppLocalizations.of(context)!.somethingWrong,
+                      ),
+                    );
+                    /*Provider.of<UserInfo>(context, listen: false)
+                        .updateWith(type: UserType.anonymous);*/
                   });
                 },
               );
