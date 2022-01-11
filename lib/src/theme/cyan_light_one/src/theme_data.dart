@@ -50,6 +50,17 @@ ThemeData cyanLightOne(ThemeData base) {
         color: _textColor,
       ),
     ),
+    textButtonTheme: TextButtonThemeData(
+      style: base.textButtonTheme.style?.copyWith(
+            minimumSize: MaterialStateProperty.all(
+              const Size(48.0, 48.0),
+            ),
+          ) ??
+          TextButton.styleFrom(
+            primary: _primaryColor,
+            minimumSize: const Size(48.0, 48.0),
+          ),
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: base.elevatedButtonTheme.style?.copyWith(
             foregroundColor: MaterialStateProperty.all(_primaryColor),

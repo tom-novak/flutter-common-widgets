@@ -54,5 +54,6 @@
     },
     "startScreenSignIn" : "Start screen sign in",
     "logout": "Logout",
-    "logoutProgress": "Logout"
+    "logoutProgress": "Logout",
+    "ok": "Ok"
 }
