@@ -52,5 +52,6 @@
             }
         }
     },
-    "startScreenSignIn" : "Start screen sign in"
+    "startScreenSignIn" : "Start screen sign in",
+    "logout": "Logout"
 }

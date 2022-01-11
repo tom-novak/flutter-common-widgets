@@ -99,4 +99,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get startScreenSignIn => 'Start screen sign in';
+
+  @override
+  String get logout => 'Logout';
 }

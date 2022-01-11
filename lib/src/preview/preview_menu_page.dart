@@ -29,13 +29,8 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
             title: l10n!.signIn,
           ),
           onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) {
-                  return const PreviewSignIn();
-                },
-              ),
-            );
+            Provider.of<NeedsRestrictedContent>(context, listen: false).value =
+                true;
           },
         ),
         CommonListTile(
@@ -81,6 +76,23 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
                   ? Text('${l10n.about} ...')
                   : null,
             );
+          },
+        ),
+        Consumer<UserInfo>(
+          builder: (context, user, child) {
+            if (user.type == UserType.registered) {
+              return ListTile(
+                title: Text(AppLocalizations.of(context)!.logout),
+                onTap: () {
+                  Future.delayed(const Duration(milliseconds: 1000))
+                      .then((value) {
+                    Provider.of<UserInfo>(context, listen: false)
+                        .updateWith(type: UserType.anonymous);
+                  });
+                },
+              );
+            }
+            return const SizedBox.shrink();
           },
         ),
       ],

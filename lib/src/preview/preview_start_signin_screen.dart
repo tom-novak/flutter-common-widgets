@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
+import 'package:provider/provider.dart';
 
-class PreviewStartSignInScreen extends StatelessWidget {
+class PreviewStartSignInScreen extends StatefulWidget {
   const PreviewStartSignInScreen({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<PreviewStartSignInScreen> createState() =>
+      _PreviewStartSignInScreenState();
+}
+
+class _PreviewStartSignInScreenState extends State<PreviewStartSignInScreen> {
+  var widgetState = WidgetState.content;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +31,17 @@ class PreviewStartSignInScreen extends StatelessWidget {
               form: LoginPasswordForm(
                 loginValidator: (value) => notNullValidator(context, value),
                 passwordValidator: (value) => notNullValidator(context, value),
+                widgetState: widgetState,
+                onSubmit: (login, value) {
+                  setState(() {
+                    widgetState = WidgetState.loading;
+                  });
+                  Future.delayed(const Duration(milliseconds: 700))
+                      .then((value) {
+                    Provider.of<UserInfo>(context, listen: false)
+                        .updateWith(type: UserType.registered);
+                  });
+                },
               ),
               alternativeActions: const PreviewAlternativeSignInActions(),
             ),

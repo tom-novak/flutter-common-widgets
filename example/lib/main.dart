@@ -8,6 +8,12 @@ void main() {
       providers: [
         ChangeNotifierProvider<AppPackageInfo>(
           create: (context) => AppPackageInfo(),
+        ),
+        ChangeNotifierProvider<UserInfo>(
+          create: (context) => UserInfo(),
+        ),
+        ChangeNotifierProvider<NeedsRestrictedContent>(
+          create: (context) => NeedsRestrictedContent(),
         )
       ],
       child: const PreviewApp(),

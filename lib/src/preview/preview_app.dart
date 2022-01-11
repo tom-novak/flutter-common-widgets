@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 
 class PreviewApp extends StatelessWidget {
   const PreviewApp({Key? key}) : super(key: key);
@@ -23,7 +24,21 @@ class PreviewApp extends StatelessWidget {
         Locale('cs', ''),
       ],
       theme: ThemeData().cyanLightOne,
-      home: const PreviewMainScreen(),
+      home: Consumer<UserInfo>(
+          builder: (context, user, child) {
+            if (user.type == UserType.anonymous) {
+              return const PreviewStartSignInScreen();
+            }
+            return child!;
+          },
+          child: Consumer<NeedsRestrictedContent>(
+              builder: (context, needsRestrictedContent, child) {
+                if (needsRestrictedContent.value) {
+                  return const PreviewSignIn();
+                }
+                return child!;
+              },
+              child: const PreviewMainScreen())),
     );
   }
 }
