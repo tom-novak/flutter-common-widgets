@@ -273,6 +273,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Logout'**
   String get logout;
+
+  /// No description provided for @logoutProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logoutProgress;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

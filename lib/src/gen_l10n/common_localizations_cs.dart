@@ -102,4 +102,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get logout => 'Odhlásit';
+
+  @override
+  String get logoutProgress => 'Odhlašování';
 }
