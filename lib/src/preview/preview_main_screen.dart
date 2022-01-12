@@ -9,7 +9,25 @@ class PreviewMainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var l10n = AppLocalizations.of(context);
     return MainScreen(
-      appBarTitle: Text(l10n!.appTitle),
+      appBar: AppBar(
+        title: Text(l10n!.appTitle),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.person),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const BaseVerticalScreen(
+                      body: PreviewProfilePage(),
+                    );
+                  },
+                ),
+              );
+            },
+          )
+        ],
+      ),
       slots: <PageSlot>[
         PageSlot(
           icon: const Icon(Icons.dashboard_outlined),
@@ -25,11 +43,6 @@ class PreviewMainScreen extends StatelessWidget {
           icon: const Icon(Icons.grid_view_outlined),
           label: l10n.cards,
           content: const PreviewCardsPage(),
-        ),
-        PageSlot(
-          icon: const Icon(Icons.loupe_outlined),
-          label: l10n.detail,
-          content: const PreviewDetailPage(),
         ),
         PageSlot(
           icon: const Icon(Icons.menu),

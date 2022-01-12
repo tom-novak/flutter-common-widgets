@@ -31,4 +31,12 @@ class UserInfo extends ChangeNotifier {
     _email = email;
     notifyListeners();
   }
+
+  void clear() {
+    _type = UserType.anonymous;
+    _firstName = '';
+    _lastName = '';
+    _email = '';
+    notifyListeners();
+  }
 }
