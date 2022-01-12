@@ -27,8 +27,8 @@ class PreviewListPage extends StatelessWidget {
           subtitle: AppLocalizations.of(context)!.loremIpsumShort,
         ),
       ),
-      widgetStateBuilder: (context) {
-        return WidgetState.content;
+      layoutStateBuilder: (context) {
+        return LayoutState.content;
       },
     );
   }

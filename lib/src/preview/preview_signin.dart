@@ -13,7 +13,7 @@ class PreviewSignIn extends StatefulWidget {
 }
 
 class _PreviewSignInState extends State<PreviewSignIn> {
-  var widgetState = WidgetState.content;
+  var layoutState = LayoutState.content;
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +29,10 @@ class _PreviewSignInState extends State<PreviewSignIn> {
             form: LoginPasswordForm(
               loginValidator: (value) => notNullValidator(context, value),
               passwordValidator: (value) => notNullValidator(context, value),
-              widgetState: widgetState,
+              layoutState: layoutState,
               onSubmit: (login, value) {
                 setState(() {
-                  widgetState = WidgetState.loading;
+                  layoutState = LayoutState.loading;
                 });
                 Future.delayed(const Duration(milliseconds: 700))
                     .then((value) {

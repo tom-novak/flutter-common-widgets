@@ -6,7 +6,7 @@ class BaseVerticalScreen extends StatelessWidget {
   final Widget? appBarTitle;
   final Widget? body;
   final Widget? bottomNavigationBar;
-  final String Function(BuildContext) widgetStateBuilder;
+  final String Function(BuildContext) layoutStateBuilder;
 
   const BaseVerticalScreen({
     Key? key,
@@ -14,8 +14,8 @@ class BaseVerticalScreen extends StatelessWidget {
     this.appBarTitle,
     this.body,
     this.bottomNavigationBar,
-    String Function(BuildContext)? widgetStateBuilder,
-  })  : widgetStateBuilder = widgetStateBuilder ?? contentStateBuilder,
+    String Function(BuildContext)? layoutStateBuilder,
+  })  : layoutStateBuilder = layoutStateBuilder ?? contentStateBuilder,
         super(key: key);
 
   @override

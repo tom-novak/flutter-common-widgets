@@ -2,30 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 import 'package:flutter_conditional_rendering/conditional_switch.dart';
 
-String contentStateBuilder(BuildContext context) => WidgetState.content;
+String contentStateBuilder(BuildContext context) => LayoutState.content;
 
 class BaseVerticalPage extends StatelessWidget {
   final Widget? above;
   final Widget? content;
   final Widget? below;
-  final String Function(BuildContext) widgetStateBuilder;
+  final String Function(BuildContext) layoutStateBuilder;
 
   const BaseVerticalPage({
     Key? key,
     this.above,
     this.content,
     this.below,
-    String Function(BuildContext)? widgetStateBuilder,
-  })  : widgetStateBuilder = widgetStateBuilder ?? contentStateBuilder,
+    String Function(BuildContext)? layoutStateBuilder,
+  })  : layoutStateBuilder = layoutStateBuilder ?? contentStateBuilder,
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ConditionalSwitch.single<String>(
         context: context,
-        valueBuilder: widgetStateBuilder,
+        valueBuilder: layoutStateBuilder,
         caseBuilders: {
-          WidgetState.content: (context) {
+          LayoutState.content: (context) {
             return Column(
               children: [
                 if (above != null)
@@ -42,10 +42,10 @@ class BaseVerticalPage extends StatelessWidget {
               ],
             );
           },
-          WidgetState.loading: (context) => const ShimmerList(
+          LayoutState.loading: (context) => const ShimmerList(
                 itemCount: 7,
               ),
-          WidgetState.error: (context) => const CommonErrorPage(),
+          LayoutState.error: (context) => const CommonErrorPage(),
         },
         fallbackBuilder: (context) => const SizedBox.shrink());
   }

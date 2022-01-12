@@ -9,15 +9,15 @@ class LoginPasswordForm extends StatefulWidget {
   final SubmitCallback? onSubmit;
   final FormFieldValidator<String>? loginValidator;
   final FormFieldValidator<String>? passwordValidator;
-  final String widgetState;
+  final String layoutState;
 
   const LoginPasswordForm({
     Key? key,
     this.onSubmit,
     this.loginValidator,
     this.passwordValidator,
-    String? widgetState,
-  })  : widgetState = widgetState ?? WidgetState.content,
+    String? layoutState,
+  })  : layoutState = layoutState ?? LayoutState.content,
         super(key: key);
 
   @override
@@ -53,7 +53,7 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
               validator: widget.loginValidator,
               textInputAction: TextInputAction.next,
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              enabled: widget.widgetState == WidgetState.content,
+              enabled: widget.layoutState == LayoutState.content,
             ),
           ),
           TextFormField(
@@ -66,7 +66,7 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
             validator: widget.passwordValidator,
             textInputAction: TextInputAction.done,
             autovalidateMode: AutovalidateMode.onUserInteraction,
-            enabled: widget.widgetState == WidgetState.content,
+            enabled: widget.layoutState == LayoutState.content,
           ),
           Padding(
             padding: const EdgeInsets.only(top: 32.0),
@@ -76,7 +76,7 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
                 ConditionalSwitch.single<String>(
                     context: context,
                     caseBuilders: {
-                      WidgetState.content: (context) => Expanded(
+                      LayoutState.content: (context) => Expanded(
                             child: ElevatedButton(
                               onPressed: () {
                                 if (_formKey.currentState!.validate() &&
@@ -90,13 +90,13 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
                               child: Text(AppLocalizations.of(context)!.submit),
                             ),
                           ),
-                      WidgetState.loading: (context) => const SizedBox(
+                      LayoutState.loading: (context) => const SizedBox(
                             width: 48.0,
                             height: 48.0,
                             child: CircularProgressIndicator(),
                           ),
                     },
-                    valueBuilder: (context) => widget.widgetState,
+                    valueBuilder: (context) => widget.layoutState,
                     fallbackBuilder: (context) => const SizedBox.shrink()),
               ],
             ),
