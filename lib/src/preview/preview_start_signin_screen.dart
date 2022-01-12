@@ -36,11 +36,16 @@ class _PreviewStartSignInScreenState extends State<PreviewStartSignInScreen> {
                   setState(() {
                     layoutState = LayoutState.loading;
                   });
-                  Future.delayed(const Duration(milliseconds: 700))
-                      .then((value) {
-                    Provider.of<UserInfo>(context, listen: false)
-                        .updateWith(type: UserType.registered);
-                  });
+                  Future.delayed(const Duration(milliseconds: 700)).then(
+                    (value) {
+                      Provider.of<UserInfo>(context, listen: false).updateWith(
+                        type: UserType.registered,
+                        firstName: 'John',
+                        lastName: 'Smith',
+                        email: 'john.smith@goodemail.com',
+                      );
+                    },
+                  );
                 },
               ),
               alternativeActions: const PreviewAlternativeSignInActions(),
