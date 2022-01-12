@@ -35,21 +35,6 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
         ),
         CommonListTile(
           item: CommonItem(
-            icon: const Icon(Icons.login),
-            title: l10n.startScreenSignIn,
-          ),
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) {
-                  return const PreviewStartSignInScreen();
-                },
-              ),
-            );
-          },
-        ),
-        CommonListTile(
-          item: CommonItem(
             icon: const Icon(Icons.info),
             title: l10n.profile,
           ),
@@ -57,9 +42,8 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return BaseVerticalScreen(
-                    appBarTitle: Text(l10n.profile),
-                    body: const PreviewProfilePage(),
+                  return const BaseVerticalScreen(
+                    body: PreviewProfilePage(),
                   );
                 },
               ),
@@ -104,8 +88,6 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
                             AppLocalizations.of(context)!.somethingWrong,
                       ),
                     );
-                    /*Provider.of<UserInfo>(context, listen: false)
-                        .updateWith(type: UserType.anonymous);*/
                   });
                 },
               );

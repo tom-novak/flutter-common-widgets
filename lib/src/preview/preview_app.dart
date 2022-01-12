@@ -33,7 +33,10 @@ class PreviewApp extends StatelessWidget {
           },
           child: Consumer<NeedsRestrictedContent>(
               builder: (context, needsRestrictedContent, child) {
-                if (needsRestrictedContent.value) {
+                var userType =
+                    Provider.of<UserInfo>(context, listen: false).type;
+                if (needsRestrictedContent.value &&
+                    userType == UserType.anonymous) {
                   return const PreviewSignIn();
                 }
                 return child!;
