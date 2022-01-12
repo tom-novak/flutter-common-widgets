@@ -21,8 +21,8 @@ class PreviewCardsPage extends StatelessWidget {
     );
     return CommonListPage(
       itemCount: items.length,
-      widgetStateBuilder: (context) {
-        return WidgetState.content;
+      layoutStateBuilder: (context) {
+        return LayoutState.content;
       },
       itemBuilder: (context, index) {
         var item = items[index];
