@@ -22,7 +22,7 @@ class CommonListTile extends StatelessWidget {
           ? SizedBox(
               width: imageSize,
               height: imageSize,
-              child: item?.image,
+              child: Image(image: item!.image!),
             )
           : null,
       title: item?.title != null ? Text(item!.title!) : null,
