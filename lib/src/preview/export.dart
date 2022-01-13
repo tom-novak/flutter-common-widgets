@@ -1,3 +1,4 @@
+export 'navigator_2/export.dart';
 export 'preview_about_page.dart';
 export 'preview_alternative_signin_actions.dart';
 export 'preview_app.dart';

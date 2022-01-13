@@ -3,7 +3,12 @@ import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class PreviewMainScreen extends StatelessWidget {
-  const PreviewMainScreen({Key? key}) : super(key: key);
+  final String? selectedMainTab;
+
+  const PreviewMainScreen({
+    Key? key,
+    this.selectedMainTab,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

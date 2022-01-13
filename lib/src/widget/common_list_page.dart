@@ -45,7 +45,7 @@ class CommonListPage extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) {
                           return const BaseVerticalScreen(
-                            body: PreviewDetailPage(),
+                            body: PreviewDetailPage(itemId: 0,),
                           );
                         },
                       ),

@@ -16,7 +16,7 @@ void main() {
           create: (context) => NeedsRestrictedContent(),
         )
       ],
-      child: const PreviewApp(),
+      child: PreviewApp(),
     ),
   );
 }
