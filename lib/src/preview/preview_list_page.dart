@@ -1,34 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
+import 'package:provider/provider.dart';
 
-class PreviewListPage extends StatelessWidget {
-  final int? itemsCount;
-
+class PreviewListPage extends StatefulWidget {
   const PreviewListPage({
     Key? key,
-    this.itemsCount,
   }) : super(key: key);
 
   @override
+  State<PreviewListPage> createState() => _PreviewListPageState();
+}
+
+class _PreviewListPageState extends State<PreviewListPage> {
+  late ItemsRepository _repository;
+
+  @override
+  void initState() {
+    _repository = Provider.of<ItemsRepository>(context, listen: false);
+    _repository.loadNext();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return CommonListPage(
-      items: List<CommonItem>.generate(
-        1000,
-        (index) => CommonItem(
-          image: Image.asset(
-            'assets/images/train.jpg',
-            package: 'flutter_common_widgets',
-            width: 48.0,
-            height: 48.0,
-            fit: BoxFit.cover,
-          ),
-          title: AppLocalizations.of(context)!.itemIndex(index),
-          subtitle: AppLocalizations.of(context)!.loremIpsumShort,
-        ),
-      ),
-      layoutStateBuilder: (context) {
-        return LayoutState.content;
+    return Consumer<ItemsRepository>(
+      builder: (context, repository, child) {
+        return CommonListPage(
+          items: _repository.items,
+          layoutStateBuilder: (context) {
+            return LayoutState.content;
+          },
+        );
       },
     );
   }
