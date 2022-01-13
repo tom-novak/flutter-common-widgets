@@ -19,7 +19,7 @@ void main() {
           create: (context) => ItemsRepository(),
         ),
       ],
-      child: PreviewApp(),
+      child: const PreviewApp(),
     ),
   );
 }
