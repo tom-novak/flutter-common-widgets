@@ -42,7 +42,7 @@ class _PreviewCardsPageState extends State<PreviewCardsPage> {
                     MaterialPageRoute(
                       builder: (context) {
                         return const BaseVerticalScreen(
-                          body: PreviewDetailPage(),
+                          body: PreviewDetailPage(itemId: 0,),
                         );
                       },
                     ),
