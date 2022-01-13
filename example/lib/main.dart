@@ -14,9 +14,12 @@ void main() {
         ),
         ChangeNotifierProvider<NeedsRestrictedContent>(
           create: (context) => NeedsRestrictedContent(),
-        )
+        ),
+        ChangeNotifierProvider<ItemsRepository>(
+          create: (context) => ItemsRepository(),
+        ),
       ],
-      child: const PreviewApp(),
+      child: PreviewApp(),
     ),
   );
 }
