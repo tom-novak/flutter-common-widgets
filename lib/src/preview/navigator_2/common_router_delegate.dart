@@ -62,7 +62,7 @@ class CommonRouterDelegate extends RouterDelegate<CommonRoutePath>
           reportsRouteUpdateToEngine: true,
           pages: [
             MaterialPage(
-              key: ValueKey('MainPage'),
+              key: const ValueKey('MainPage'),
               name: '/',
               child: PreviewMainScreen(
                 selectedMainTab: selectedMainTab,
@@ -91,12 +91,12 @@ class CommonRouterDelegate extends RouterDelegate<CommonRoutePath>
               case '/profile':
                 return ProfilePage(user: user).createRoute(context);
               default:
-                return MaterialPageRoute(builder: (context) => UnknownScreen());
+                return MaterialPageRoute(builder: (context) => const UnknownScreen());
             }
           },
           onUnknownRoute: (routeSettings) {
             return MaterialPageRoute(
-              builder: (context) => UnknownScreen(),
+              builder: (context) => const UnknownScreen(),
             );
           },
         );
