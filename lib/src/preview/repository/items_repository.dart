@@ -8,14 +8,19 @@ class ItemsRepository extends ChangeNotifier {
     return List.unmodifiable(_items.values);
   }
 
-  void loadNext() async {
-    Future.delayed(
+  Future<void> refresh() {
+    _items.clear();
+    return loadNext();
+  }
+
+  Future<void> loadNext() {
+    return Future.delayed(
       const Duration(milliseconds: 700),
     ).then(
           (value) {
         int indexBase = _items.length + 1;
         for (int i = 0; i < 20; i++) {
-          _items.putIfAbsent(i, () =>
+          _items.putIfAbsent(indexBase + i, () =>
               CommonItem(
                 image: const AssetImage(
                   'assets/images/train.jpg',
@@ -35,7 +40,7 @@ class ItemsRepository extends ChangeNotifier {
     return _items[itemId];
   }
 
-  void reset() {
+  void clear() {
     _items.clear();
     notifyListeners();
   }

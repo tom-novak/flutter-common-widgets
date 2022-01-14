@@ -25,8 +25,11 @@ class _PreviewListPageState extends State<PreviewListPage> {
   Widget build(BuildContext context) {
     return Consumer<ItemsRepository>(
       builder: (context, repository, child) {
+        var items = repository.items;
+
         return CommonListPage(
-          items: _repository.items,
+          onRefresh: repository.refresh,
+          items: items,
           layoutStateBuilder: (context) {
             return LayoutState.content;
           },
