@@ -12,13 +12,41 @@ class PreviewListPage extends StatefulWidget {
 }
 
 class _PreviewListPageState extends State<PreviewListPage> {
-  late ItemsRepository _repository;
+  late ScrollController _controller;
+  late Function() bottomReachedListener;
+  var loadingStatus = LoadingStatus.idle;
 
   @override
   void initState() {
-    _repository = Provider.of<ItemsRepository>(context, listen: false);
-    _repository.loadNext();
+    var repository = Provider.of<ItemsRepository>(context, listen: false);
+    repository.loadNext();
+    bottomReachedListener = onBottomReached;
+    _controller = ScrollController();
+    _controller.addListener(bottomReachedListener);
     super.initState();
+  }
+
+  void onBottomReached() {
+    if (_controller.position.pixels >
+        _controller.position.maxScrollExtent - 64) {
+      setState(() {
+        loadingStatus = LoadingStatus.loading;
+      });
+      Provider.of<ItemsRepository>(context, listen: false).loadNext().then(
+            (value) => setState(
+              () {
+                loadingStatus = LoadingStatus.idle;
+              },
+            ),
+          );
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.removeListener(bottomReachedListener);
+    _controller.dispose();
   }
 
   @override
@@ -26,13 +54,15 @@ class _PreviewListPageState extends State<PreviewListPage> {
     return Consumer<ItemsRepository>(
       builder: (context, repository, child) {
         var items = repository.items;
-
-        return CommonListPage(
-          onRefresh: repository.refresh,
+        return SliverListPage(
+          controller: _controller,
           items: items,
           layoutStateBuilder: (context) {
             return LayoutState.content;
           },
+          footer: LoadingIndicator(
+            status: loadingStatus,
+          ),
         );
       },
     );
