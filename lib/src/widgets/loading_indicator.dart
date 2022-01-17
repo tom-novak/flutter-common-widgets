@@ -54,10 +54,10 @@ class LoadingIndicator extends StatelessWidget implements PreferredSizeWidget {
         );
         break;
       default:
-        _content = SizedBox.shrink();
+        _content = const SizedBox.shrink();
         break;
     }
-    ;
+
     return SizedBox(
       height: preferredSize.height,
       child: _content,
