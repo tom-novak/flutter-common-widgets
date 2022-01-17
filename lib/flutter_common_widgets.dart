@@ -7,4 +7,4 @@ export 'src/screen/export.dart';
 export 'src/screen/main_screen.dart';
 export 'src/theme/export.dart';
 export 'src/util/export.dart';
-export 'src/widget/export.dart';
+export 'src/widgets/export.dart';
