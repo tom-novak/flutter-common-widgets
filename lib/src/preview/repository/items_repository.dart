@@ -31,6 +31,7 @@ class ItemsRepository extends ChangeNotifier {
                 package: 'flutter_common_widgets',
               ),
               title: 'Item ${indexBase + i}',
+              subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               description:
                   'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris tincidunt sem sed arcu. Duis pulvinar. In dapibus augue non sapien. Nunc tincidunt ante vitae massa. Phasellus et lorem id felis nonummy placerat. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede.',
             ),
