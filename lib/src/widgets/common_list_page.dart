@@ -11,6 +11,9 @@ class CommonListPage extends StatelessWidget {
   final ValueChanged<CommonItem>? onSelected;
   final ValueChanged<CommonItem>? onLongPress;
   final String Function(BuildContext)? layoutStateBuilder;
+  final Future<void> Function()? onRefresh;
+  final VoidCallback? onTopReached;
+  final VoidCallback? onBottomReached;
 
   const CommonListPage({
     Key? key,
@@ -23,18 +26,22 @@ class CommonListPage extends StatelessWidget {
     this.onSelected,
     this.onLongPress,
     this.layoutStateBuilder,
+    this.onRefresh,
+    this.onTopReached,
+    this.onBottomReached,
   })  : items = items ?? const <CommonItem>[],
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BaseVerticalPage(
-      above: above,
-      content: ListView.separated(
-        itemCount: itemBuilder != null ? itemCount : items.length,
-        separatorBuilder: (context, index) => const Divider(),
-        itemBuilder: itemBuilder ??
-            (context, index) {
+    var count = itemBuilder != null ? itemCount : items.length;
+
+    var listView = ListView.separated(
+      itemCount: count,
+      separatorBuilder: (context, index) => const Divider(),
+      itemBuilder: itemBuilder ??
+          (context, index) {
+            if (index < items.length) {
               return CommonListTile(
                 item: items[index],
                 onTap: () {
@@ -45,7 +52,7 @@ class CommonListPage extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) {
                           return const BaseVerticalScreen(
-                            body: PreviewDetailPage(),
+                            body: PreviewDetailPage(itemId: 0,),
                           );
                         },
                       ),
@@ -56,9 +63,21 @@ class CommonListPage extends StatelessWidget {
                     ? () => onLongPress!(items[index])
                     : null,
               );
-            },
-        controller: controller,
-      ),
+            } else {
+              return LoadingIndicator();
+            }
+          },
+      controller: controller,
+    );
+
+    return BaseVerticalPage(
+      above: above,
+      content: onRefresh != null
+          ? RefreshIndicator(
+              onRefresh: onRefresh!,
+              child: listView,
+            )
+          : listView,
       below: below,
       layoutStateBuilder: layoutStateBuilder,
     );

@@ -25,12 +25,15 @@ class _PreviewCardsPageState extends State<PreviewCardsPage> {
   Widget build(BuildContext context) {
     return Consumer<ItemsRepository>(
       builder: (context, repository, child) {
+        var items = repository.items;
+
         return CommonListPage(
-          itemCount: repository.items.length,
+          onRefresh: repository.refresh,
+          itemCount: items.length,
           itemBuilder: (context, index) {
-            var item = repository.items[index];
+            var item = items[index];
             return Padding(
-              padding: item != repository.items.last
+              padding: item != items.last
                   ? const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0)
                   : const EdgeInsets.all(8.0),
               child: ImageCard(
@@ -42,7 +45,7 @@ class _PreviewCardsPageState extends State<PreviewCardsPage> {
                     MaterialPageRoute(
                       builder: (context) {
                         return const BaseVerticalScreen(
-                          body: PreviewDetailPage(),
+                          body: PreviewDetailPage(itemId: 0,),
                         );
                       },
                     ),

@@ -3,6 +3,6 @@ import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 void main() {
   runApp(
-    const PreviewApp(),
+    const PreviewNewNavigatorApp(),
   );
 }
