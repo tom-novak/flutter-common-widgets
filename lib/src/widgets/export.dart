@@ -15,6 +15,7 @@ export 'progress_indicator_overlay_route.dart';
 export 'progress_inidicator_overlay.dart';
 export 'search_form.dart';
 export 'shimmer_list.dart';
+export 'shimmer_profile.dart';
 export 'sliver_list_page.dart';
 export 'titled_message.dart';
 export 'unknown_screen.dart';
