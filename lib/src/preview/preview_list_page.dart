@@ -12,24 +12,76 @@ class PreviewListPage extends StatefulWidget {
 }
 
 class _PreviewListPageState extends State<PreviewListPage> {
-  late ItemsRepository _repository;
+  late ScrollController _controller;
+  late Function() bottomReachedListener;
+  var loadingStatus = LoadingStatus.idle;
 
   @override
   void initState() {
-    _repository = Provider.of<ItemsRepository>(context, listen: false);
-    _repository.loadNext();
+    var repository = Provider.of<ItemsRepository>(context, listen: false);
+    repository.loadNext();
+    bottomReachedListener = onBottomReached;
+    _controller = ScrollController();
+    _controller.addListener(bottomReachedListener);
     super.initState();
+  }
+
+  void onBottomReached() {
+    if (_controller.position.pixels >
+        _controller.position.maxScrollExtent) {
+      setState(() {
+        loadingStatus = LoadingStatus.loading;
+      });
+      Provider.of<ItemsRepository>(context, listen: false).loadNext().then(
+            (value) => setState(
+              () {
+                loadingStatus = LoadingStatus.idle;
+              },
+            ),
+          );
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.removeListener(bottomReachedListener);
+    _controller.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Consumer<ItemsRepository>(
       builder: (context, repository, child) {
-        return CommonListPage(
-          items: _repository.items,
-          layoutStateBuilder: (context) {
-            return LayoutState.content;
-          },
+        var items = repository.items;
+        return RefreshIndicator(
+          onRefresh: repository.refresh,
+          child: SliverListPage(
+            controller: _controller,
+            itemBuilder: (context, index) {
+              return CommonListTile(
+                  item: items[index],
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const BaseVerticalScreen(
+                            body: PreviewDetailPage(),
+                          );
+                        },
+                      ),
+                    );
+                  });
+            },
+            separatorBuilder: (context, index) => const Divider(),
+            itemCount: items.length,
+            layoutStateBuilder: (context) {
+              return LayoutState.content;
+            },
+            footer: LoadingIndicator(
+              status: loadingStatus,
+            ),
+          ),
         );
       },
     );

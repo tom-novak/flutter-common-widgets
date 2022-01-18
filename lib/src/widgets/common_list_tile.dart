@@ -22,11 +22,26 @@ class CommonListTile extends StatelessWidget {
           ? SizedBox(
               width: imageSize,
               height: imageSize,
-              child: Image(image: item!.image!),
+              child: Image(
+                image: item!.image!,
+                fit: BoxFit.cover,
+              ),
             )
           : null,
-      title: item?.title != null ? Text(item!.title!) : null,
-      subtitle: item?.subtitle != null ? Text(item!.subtitle!) : null,
+      title: item?.title != null
+          ? Text(
+              item!.title!,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            )
+          : null,
+      subtitle: item?.subtitle != null
+          ? Text(
+              item!.subtitle!,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            )
+          : null,
       onTap: onTap,
       onLongPress: onLongPress,
     );
