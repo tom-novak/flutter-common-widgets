@@ -55,5 +55,6 @@
     "startScreenSignIn" : "Start screen sign in",
     "logout": "Logout",
     "logoutProgress": "Logout",
-    "ok": "Ok"
+    "ok": "Ok",
+    "account": "Account"
 }

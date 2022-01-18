@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class PageSlot {
+class NavigationSlot {
   final String label;
   final String appBarTitle;
   final Icon icon;
   final Widget content;
 
-  PageSlot({
+  NavigationSlot({
     required this.label,
     String? appBarTitle,
     required this.icon,
@@ -17,7 +17,7 @@ class PageSlot {
 class MainScreen extends StatefulWidget {
   final PreferredSizeWidget? appBar;
   final Widget? appBarTitle;
-  final List<PageSlot> slots;
+  final List<NavigationSlot> slots;
 
   const MainScreen({
     Key? key,

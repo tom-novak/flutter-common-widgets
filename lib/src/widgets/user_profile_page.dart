@@ -33,29 +33,6 @@ class UserProfilePage extends StatelessWidget {
 
     return CustomScrollView(
       slivers: [
-        SliverAppBar(
-          pinned: true,
-          forceElevated: true,
-          title: Text(AppLocalizations.of(context)!.profile),
-          actions: [
-            IconButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (context) => ProgressIndicatorOverlay(
-                    label: AppLocalizations.of(context)!.logoutProgress,
-                  ),
-                );
-                Future.delayed(const Duration(milliseconds: 500)).then((value) {
-                  Navigator.of(context).pop();
-                  Provider.of<UserInfo>(context, listen: false).clear();
-                }).then((value) => Navigator.of(context).pop());
-              },
-              icon: const Icon(Icons.logout),
-            ),
-          ],
-        ),
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.all(48.0),
@@ -96,6 +73,25 @@ class UserProfilePage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText1,
                     maxLines: 1,
                   ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: TextButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (context) => ProgressIndicatorOverlay(
+                          label: AppLocalizations.of(context)!.logoutProgress,
+                        ),
+                      );
+                      Future.delayed(const Duration(milliseconds: 500))
+                          .then((value) {
+                        Provider.of<UserInfo>(context, listen: false).clear();
+                      }).then((value) => Navigator.of(context).pop());
+                    },
+                    child: Text(AppLocalizations.of(context)!.logout),
+                  ),
+                ),
               ],
             ),
           ),
