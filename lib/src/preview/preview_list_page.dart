@@ -28,7 +28,7 @@ class _PreviewListPageState extends State<PreviewListPage> {
 
   void onBottomReached() {
     if (_controller.position.pixels >
-        _controller.position.maxScrollExtent - 64) {
+        _controller.position.maxScrollExtent) {
       setState(() {
         loadingStatus = LoadingStatus.loading;
       });
@@ -54,14 +54,33 @@ class _PreviewListPageState extends State<PreviewListPage> {
     return Consumer<ItemsRepository>(
       builder: (context, repository, child) {
         var items = repository.items;
-        return SliverListPage(
-          controller: _controller,
-          items: items,
-          layoutStateBuilder: (context) {
-            return LayoutState.content;
-          },
-          footer: LoadingIndicator(
-            status: loadingStatus,
+        return RefreshIndicator(
+          onRefresh: repository.refresh,
+          child: SliverListPage(
+            controller: _controller,
+            itemBuilder: (context, index) {
+              return CommonListTile(
+                  item: items[index],
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const BaseVerticalScreen(
+                            body: PreviewDetailPage(),
+                          );
+                        },
+                      ),
+                    );
+                  });
+            },
+            separatorBuilder: (context, index) => const Divider(),
+            itemCount: items.length,
+            layoutStateBuilder: (context) {
+              return LayoutState.content;
+            },
+            footer: LoadingIndicator(
+              status: loadingStatus,
+            ),
           ),
         );
       },

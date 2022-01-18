@@ -1,36 +1,37 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
-typedef FooterBuilder = Widget Function(BuildContext context, LoadingStatus state);
+typedef FooterBuilder = Widget Function(
+    BuildContext context, LoadingStatus state);
 
 class SliverListPage extends StatelessWidget {
+  static int _computeActualChildCount(int itemCount) {
+    return max(0, itemCount * 2 - 1);
+  }
+
+  final IndexedWidgetBuilder itemBuilder;
+  final IndexedWidgetBuilder separatorBuilder;
   final int itemCount;
-  final IndexedWidgetBuilder? itemBuilder;
   final ScrollController? controller;
-  final List<CommonItem> items;
-  final ValueChanged<CommonItem>? onSelected;
-  final ValueChanged<CommonItem>? onLongPress;
   final String Function(BuildContext)? layoutStateBuilder;
   final Widget? header;
   final Widget? footer;
 
   const SliverListPage({
     Key? key,
-    this.itemCount = 0,
-    this.itemBuilder,
+    required this.itemBuilder,
+    required this.separatorBuilder,
+    required this.itemCount,
     this.controller,
-    List<CommonItem>? items,
-    this.onSelected,
-    this.onLongPress,
     this.layoutStateBuilder,
     this.header,
     this.footer,
-  })  : items = items ?? const <CommonItem>[],
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var count = itemBuilder != null ? itemCount : items.length;
     var listViewNew = CustomScrollView(
       controller: controller,
       slivers: [
@@ -40,15 +41,17 @@ class SliverListPage extends StatelessWidget {
           ),
         SliverList(
           delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return CommonListTile(
-                item: items[index],
-                onLongPress: onLongPress != null
-                    ? () => onLongPress!(items[index])
-                    : null,
-              );
+            (BuildContext context, int index) {
+              final int itemIndex = index ~/ 2;
+              final Widget widget;
+              if (index.isEven) {
+                widget = itemBuilder(context, itemIndex);
+              } else {
+                widget = separatorBuilder(context, itemIndex);
+              }
+              return widget;
             },
-            childCount: count,
+            childCount: _computeActualChildCount(itemCount),
           ),
         ),
         if (footer != null) SliverToBoxAdapter(child: footer),
