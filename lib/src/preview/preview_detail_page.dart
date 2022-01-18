@@ -4,7 +4,9 @@ import 'package:flutter_common_widgets/flutter_common_localizations.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class PreviewDetailPage extends StatelessWidget {
-  const PreviewDetailPage({Key? key}) : super(key: key);
+  final int? itemId;
+
+  const PreviewDetailPage({Key? key, required this.itemId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
