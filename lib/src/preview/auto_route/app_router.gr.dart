@@ -18,12 +18,18 @@ class _$$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     PreviewMainScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<PreviewMainScreenRouteArgs>(
+          orElse: () => const PreviewMainScreenRouteArgs());
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const PreviewMainScreen());
+          routeData: routeData,
+          child: PreviewMainScreen(
+              key: args.key, selectedMainTab: args.selectedMainTab));
     },
     PreviewDetailPageRoute.name: (routeData) {
+      final args = routeData.argsAs<PreviewDetailPageRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const PreviewDetailPage());
+          routeData: routeData,
+          child: PreviewDetailPage(key: args.key, itemId: args.itemId));
     },
     PreviewProfilePageRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -34,18 +40,12 @@ class _$$AppRouter extends RootStackRouter {
           routeData: routeData, child: const PreviewDashboardPage());
     },
     PreviewListPageRoute.name: (routeData) {
-      final args = routeData.argsAs<PreviewListPageRouteArgs>(
-          orElse: () => const PreviewListPageRouteArgs());
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: PreviewListPage(key: args.key, itemsCount: args.itemsCount));
+          routeData: routeData, child: const PreviewListPage());
     },
     PreviewCardsPageRoute.name: (routeData) {
-      final args = routeData.argsAs<PreviewCardsPageRouteArgs>(
-          orElse: () => const PreviewCardsPageRouteArgs());
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: PreviewCardsPage(key: args.key, itemCount: args.itemCount));
+          routeData: routeData, child: const PreviewCardsPage());
     },
     PreviewStartSignInScreenRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -72,21 +72,53 @@ class _$$AppRouter extends RootStackRouter {
 
 /// generated route for
 /// [PreviewMainScreen]
-class PreviewMainScreenRoute extends PageRouteInfo<void> {
-  const PreviewMainScreenRoute({List<PageRouteInfo>? children})
+class PreviewMainScreenRoute extends PageRouteInfo<PreviewMainScreenRouteArgs> {
+  PreviewMainScreenRoute(
+      {Key? key, String? selectedMainTab, List<PageRouteInfo>? children})
       : super(PreviewMainScreenRoute.name,
-            path: '/', initialChildren: children);
+            path: '/',
+            args: PreviewMainScreenRouteArgs(
+                key: key, selectedMainTab: selectedMainTab),
+            initialChildren: children);
 
   static const String name = 'PreviewMainScreenRoute';
 }
 
+class PreviewMainScreenRouteArgs {
+  const PreviewMainScreenRouteArgs({this.key, this.selectedMainTab});
+
+  final Key? key;
+
+  final String? selectedMainTab;
+
+  @override
+  String toString() {
+    return 'PreviewMainScreenRouteArgs{key: $key, selectedMainTab: $selectedMainTab}';
+  }
+}
+
 /// generated route for
 /// [PreviewDetailPage]
-class PreviewDetailPageRoute extends PageRouteInfo<void> {
-  const PreviewDetailPageRoute()
-      : super(PreviewDetailPageRoute.name, path: '/item');
+class PreviewDetailPageRoute extends PageRouteInfo<PreviewDetailPageRouteArgs> {
+  PreviewDetailPageRoute({Key? key, required int? itemId})
+      : super(PreviewDetailPageRoute.name,
+            path: '/item',
+            args: PreviewDetailPageRouteArgs(key: key, itemId: itemId));
 
   static const String name = 'PreviewDetailPageRoute';
+}
+
+class PreviewDetailPageRouteArgs {
+  const PreviewDetailPageRouteArgs({this.key, required this.itemId});
+
+  final Key? key;
+
+  final int? itemId;
+
+  @override
+  String toString() {
+    return 'PreviewDetailPageRouteArgs{key: $key, itemId: $itemId}';
+  }
 }
 
 /// generated route for
@@ -109,50 +141,19 @@ class PreviewDashboardPageRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PreviewListPage]
-class PreviewListPageRoute extends PageRouteInfo<PreviewListPageRouteArgs> {
-  PreviewListPageRoute({Key? key, int? itemsCount})
-      : super(PreviewListPageRoute.name,
-            path: 'list',
-            args: PreviewListPageRouteArgs(key: key, itemsCount: itemsCount));
+class PreviewListPageRoute extends PageRouteInfo<void> {
+  const PreviewListPageRoute() : super(PreviewListPageRoute.name, path: 'list');
 
   static const String name = 'PreviewListPageRoute';
 }
 
-class PreviewListPageRouteArgs {
-  const PreviewListPageRouteArgs({this.key, this.itemsCount});
-
-  final Key? key;
-
-  final int? itemsCount;
-
-  @override
-  String toString() {
-    return 'PreviewListPageRouteArgs{key: $key, itemsCount: $itemsCount}';
-  }
-}
-
 /// generated route for
 /// [PreviewCardsPage]
-class PreviewCardsPageRoute extends PageRouteInfo<PreviewCardsPageRouteArgs> {
-  PreviewCardsPageRoute({Key? key, int? itemCount})
-      : super(PreviewCardsPageRoute.name,
-            path: 'cards',
-            args: PreviewCardsPageRouteArgs(key: key, itemCount: itemCount));
+class PreviewCardsPageRoute extends PageRouteInfo<void> {
+  const PreviewCardsPageRoute()
+      : super(PreviewCardsPageRoute.name, path: 'cards');
 
   static const String name = 'PreviewCardsPageRoute';
-}
-
-class PreviewCardsPageRouteArgs {
-  const PreviewCardsPageRouteArgs({this.key, this.itemCount});
-
-  final Key? key;
-
-  final int? itemCount;
-
-  @override
-  String toString() {
-    return 'PreviewCardsPageRouteArgs{key: $key, itemCount: $itemCount}';
-  }
 }
 
 /// generated route for
