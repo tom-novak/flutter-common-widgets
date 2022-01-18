@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_localizations.dart';
+import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class SearchForm extends StatelessWidget {
   final Key? formKey;
@@ -23,7 +24,7 @@ class SearchForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(kContainerPadding),
       child: Stack(
         children: [
           Form(
@@ -48,8 +49,8 @@ class SearchForm extends StatelessWidget {
             child: clearWidget ??
                 InkWell(
                   child: const SizedBox(
-                    width: 48,
-                    height: 48,
+                    width: kMinInteractiveDimension,
+                    height: kMinInteractiveDimension,
                     child: Icon(
                       Icons.clear,
                     ),

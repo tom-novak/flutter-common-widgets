@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 enum LoadingStatus {
   idle,
@@ -46,8 +47,8 @@ class LoadingIndicator extends StatelessWidget implements PreferredSizeWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             SizedBox(
-              width: 32.0,
-              height: 32.0,
+              width: kProgressIndicatorSmall,
+              height: kProgressIndicatorSmall,
               child: CircularProgressIndicator(),
             ),
           ],

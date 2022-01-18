@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class CommonCard extends StatelessWidget {
   final ImageProvider? image;
@@ -61,7 +62,7 @@ class CommonCard extends StatelessWidget {
               child: imageOverlay,
             ),
             Container(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(kContainerPadding),
               child: Column(
                 children: [
                   if (title != null || titleChild != null)
@@ -69,7 +70,7 @@ class CommonCard extends StatelessWidget {
                       children: [
                         if (title != null)
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 16.0),
+                            padding: const EdgeInsets.only(bottom: kContainerPadding),
                             child: Text(
                               title!,
                               style: Theme.of(context).textTheme.headline5,

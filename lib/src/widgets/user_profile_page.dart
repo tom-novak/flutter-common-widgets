@@ -37,7 +37,7 @@ class UserProfilePage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(48.0),
             child: CircleAvatar(
-              radius: 64.0,
+              radius: kAvatarLarge / 2,
               foregroundImage: image,
               backgroundColor: Colors.amberAccent,
               child: Center(
@@ -50,7 +50,7 @@ class UserProfilePage extends StatelessWidget {
                     : const Icon(
                         Icons.account_circle,
                         color: Colors.white,
-                        size: 128.0,
+                        size: kAvatarLarge,
                       ),
               ),
             ),
@@ -74,7 +74,7 @@ class UserProfilePage extends StatelessWidget {
                     maxLines: 1,
                   ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: kContainerPadding),
                   child: TextButton(
                     onPressed: () {
                       showDialog(

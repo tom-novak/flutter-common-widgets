@@ -43,7 +43,7 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
+            padding: const EdgeInsets.only(bottom: kContainerPadding),
             child: TextFormField(
               decoration: InputDecoration(
                 labelText: AppLocalizations.of(context)!.login,
@@ -91,8 +91,8 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
                             ),
                           ),
                       LayoutState.loading: (context) => const SizedBox(
-                            width: 48.0,
-                            height: 48.0,
+                            width: kProgressIndicatorMiddle,
+                            height: kProgressIndicatorMiddle,
                             child: CircularProgressIndicator(),
                           ),
                     },
