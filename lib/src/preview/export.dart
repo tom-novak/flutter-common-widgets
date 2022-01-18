@@ -8,6 +8,7 @@ export 'preview_detail_page.dart';
 export 'preview_list_page.dart';
 export 'preview_main_screen.dart';
 export 'preview_menu_page.dart';
+export 'preview_new_navigator_app.dart';
 export 'preview_profile_page.dart';
 export 'preview_signin.dart';
 export 'preview_start_signin_screen.dart';
