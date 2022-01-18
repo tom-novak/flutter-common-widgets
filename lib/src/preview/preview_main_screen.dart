@@ -16,40 +16,29 @@ class PreviewMainScreen extends StatelessWidget {
     return MainScreen(
       appBar: AppBar(
         title: Text(l10n!.appTitle),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.person),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const BaseVerticalScreen(
-                      body: PreviewProfilePage(),
-                    );
-                  },
-                ),
-              );
-            },
-          )
-        ],
       ),
-      slots: <PageSlot>[
-        PageSlot(
+      slots: <NavigationSlot>[
+        NavigationSlot(
           icon: const Icon(Icons.dashboard_outlined),
           label: l10n.dashboard,
           content: const PreviewDashboardPage(),
         ),
-        PageSlot(
+        NavigationSlot(
           icon: const Icon(Icons.list_outlined),
           label: l10n.list,
           content: const PreviewListPage(),
         ),
-        PageSlot(
+        NavigationSlot(
           icon: const Icon(Icons.grid_view_outlined),
           label: l10n.cards,
           content: const PreviewCardsPage(),
         ),
-        PageSlot(
+        NavigationSlot(
+          icon: const Icon(Icons.person),
+          label: l10n.account,
+          content: const PreviewProfilePage(),
+        ),
+        NavigationSlot(
           icon: const Icon(Icons.menu),
           label: l10n.next,
           content: const PreviewMenuPage(),

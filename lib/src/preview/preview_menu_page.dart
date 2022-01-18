@@ -33,23 +33,6 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
                 true;
           },
         ),
-        CommonListTile(
-          item: CommonItem(
-            icon: const Icon(Icons.info),
-            title: l10n.profile,
-          ),
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) {
-                  return const BaseVerticalScreen(
-                    body: PreviewProfilePage(),
-                  );
-                },
-              ),
-            );
-          },
-        ),
         Consumer<AppPackageInfo>(
           builder: (context, appPackageInfo, child) {
             return AboutListTile(

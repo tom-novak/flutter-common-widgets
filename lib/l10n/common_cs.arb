@@ -55,5 +55,6 @@
     "startScreenSignIn" : "Přihlášení po startu",
     "logout": "Odhlásit",
     "logoutProgress": "Odhlašování",
-    "ok": "Ok"
+    "ok": "Ok",
+    "account": "Účet"
 }
