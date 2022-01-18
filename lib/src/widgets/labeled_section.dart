@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class LabeledSection extends StatelessWidget {
   final String? label;
@@ -19,7 +20,7 @@ class LabeledSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: padding ?? const EdgeInsets.all(16.0),
+      padding: padding ?? const EdgeInsets.all(kContainerPadding),
       child: Column(
         children: [
           if (label != null)

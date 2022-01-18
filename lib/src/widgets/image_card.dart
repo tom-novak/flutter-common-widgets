@@ -66,7 +66,7 @@ class ImageCard extends StatelessWidget {
                   child: imageOverlay,
                 ),
                 Container(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(kContainerPadding),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.6),
                     borderRadius: borderRadius.copyWith(

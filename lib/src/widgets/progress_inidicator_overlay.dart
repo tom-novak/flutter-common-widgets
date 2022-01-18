@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_common_widgets/src/theme/dark_background_image/dark_background_image.dart';
+import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class ProgressIndicatorOverlay extends StatelessWidget {
   final String? label;
@@ -18,8 +18,8 @@ class ProgressIndicatorOverlay extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               const SizedBox(
-                width: 48.0,
-                height: 48.0,
+                width: kProgressIndicatorMiddle,
+                height: kProgressIndicatorMiddle,
                 child: CircularProgressIndicator(),
               ),
               if (label != null)

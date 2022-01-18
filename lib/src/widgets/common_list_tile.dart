@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class CommonListTile extends StatelessWidget {
-  static const imageSize = 48.0;
-
   final CommonItem? item;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
@@ -20,8 +18,8 @@ class CommonListTile extends StatelessWidget {
     return ListTile(
       leading: item?.image != null
           ? SizedBox(
-              width: imageSize,
-              height: imageSize,
+              width: kListTileImageSize,
+              height: kListTileImageSize,
               child: Image(
                 image: item!.image!,
                 fit: BoxFit.cover,

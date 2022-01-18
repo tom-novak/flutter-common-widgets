@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class LoadingList extends StatelessWidget {
-  static const indicatorSize = 72.0;
 
   const LoadingList({Key? key}) : super(key: key);
 
@@ -9,8 +9,8 @@ class LoadingList extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Align(
       child: SizedBox(
-        width: indicatorSize,
-        height: indicatorSize,
+        width: kProgressIndicatorLarge,
+        height: kProgressIndicatorLarge,
         child: CircularProgressIndicator(
           strokeWidth: 2,
         ),
