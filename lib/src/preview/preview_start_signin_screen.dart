@@ -30,17 +30,20 @@ class _PreviewStartSignInScreenState extends State<PreviewStartSignInScreen> {
             body: SafeArea(
               child: Column(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(64.0),
-                    child: const Image(
-                      height: 128,
-                      image: AssetImage(
-                        'assets/images/logo.png',
-                        package: 'flutter_common_widgets',
+                  const Expanded(
+                    flex: 1,
+                    child: Center(
+                      child: Image(
+                        height: 128.0,
+                        image: AssetImage(
+                          'assets/images/logo.png',
+                          package: 'flutter_common_widgets',
+                        ),
                       ),
                     ),
                   ),
                   Expanded(
+                    flex: 2,
                     child: CommonLogin(
                       form: LoginPasswordForm(
                         loginValidator: (value) => notNullValidator(context, value),
