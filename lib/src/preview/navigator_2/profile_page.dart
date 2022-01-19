@@ -17,7 +17,7 @@ class ProfilePage extends Page {
       builder: (context) => UserProfilePage(
         user: user,
         image: const AssetImage(
-          'assets/images/train.jpg',
+          'assets/images/train_small.jpg',
           package: 'flutter_common_widgets',
         ),
       ),

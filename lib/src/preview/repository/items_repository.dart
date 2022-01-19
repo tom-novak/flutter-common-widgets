@@ -27,7 +27,7 @@ class ItemsRepository extends ChangeNotifier {
             indexBase + i,
             () => CommonItem(
               image: const AssetImage(
-                'assets/images/train.jpg',
+                'assets/images/train_medium.jpg',
                 package: 'flutter_common_widgets',
               ),
               title: 'Item ${indexBase + i}',
