@@ -27,7 +27,7 @@ class UserProfileShimmer extends StatelessWidget {
               children: [
                 Container(
                   width: 180,
-                  height: 28,
+                  height: 24,
                   color: Colors.white,
                 ),
                 const SizedBox(
@@ -35,7 +35,7 @@ class UserProfileShimmer extends StatelessWidget {
                 ),
                 Container(
                   width: 200,
-                  height: 16,
+                  height: 12,
                   color: Colors.white,
                 ),
               ],

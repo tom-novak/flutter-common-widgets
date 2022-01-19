@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 /// Profile avatar size
-const double kAvatarLarge = 64.0;
+const double kAvatarLarge = 128.0;
 
 /// Default list item leading image
 const double kListTileImageSize = 48.0;
