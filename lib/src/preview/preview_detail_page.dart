@@ -59,7 +59,7 @@ class PreviewDetailPage extends StatelessWidget {
                 ),
               ),
               child: Image.asset(
-                'assets/images/train.jpg',
+                'assets/images/train_large.jpg',
                 package: 'flutter_common_widgets',
                 fit: BoxFit.cover,
               ),

@@ -14,7 +14,7 @@ class DarkBackgroundDecorationImage extends DecorationImage {
           fit: fit ?? BoxFit.cover,
           image: image ??
               const AssetImage(
-                'assets/images/train.jpg',
+                'assets/images/train_large.jpg',
                 package: 'flutter_common_widgets',
               ),
         );
