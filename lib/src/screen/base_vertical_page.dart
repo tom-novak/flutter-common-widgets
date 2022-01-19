@@ -42,7 +42,7 @@ class BaseVerticalPage extends StatelessWidget {
               ],
             );
           },
-          LayoutState.loading: (context) => const ShimmerList(
+          LayoutState.loading: (context) => const CommonListShimmer(
                 itemCount: 7,
               ),
           LayoutState.error: (context) => const CommonErrorPage(),

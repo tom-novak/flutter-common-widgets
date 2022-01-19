@@ -20,7 +20,7 @@ class LabeledSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: padding ?? const EdgeInsets.all(kContainerPadding),
+      padding: padding ?? kContainerPadding,
       child: Column(
         children: [
           if (label != null)

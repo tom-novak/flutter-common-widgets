@@ -27,12 +27,9 @@ class ImageCard extends StatelessWidget {
     this.onLongPress,
     this.onDoubleTap,
     this.descriptionMaxLines = 3,
-    this.height = 240.0,
+    this.height = kImageCardHeight,
     BorderRadius? borderRadius,
-  })  : borderRadius = borderRadius ??
-            const BorderRadius.all(
-              Radius.circular(8.0),
-            ),
+  })  : borderRadius = borderRadius ?? kCardBorderRadius,
         super(key: key);
 
   @override
@@ -66,7 +63,7 @@ class ImageCard extends StatelessWidget {
                   child: imageOverlay,
                 ),
                 Container(
-                  padding: const EdgeInsets.all(kContainerPadding),
+                  padding: kContainerPadding,
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.6),
                     borderRadius: borderRadius.copyWith(

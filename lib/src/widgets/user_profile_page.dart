@@ -74,7 +74,7 @@ class UserProfilePage extends StatelessWidget {
                     maxLines: 1,
                   ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: kContainerPadding),
+                  padding: const EdgeInsets.symmetric(vertical: kContainerPaddingValue),
                   child: TextButton(
                     onPressed: () {
                       showDialog(
