@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class ShimmerProfile extends StatelessWidget {
-  const ShimmerProfile({Key? key}) : super(key: key);
+class UserProfileShimmer extends StatelessWidget {
+  const UserProfileShimmer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

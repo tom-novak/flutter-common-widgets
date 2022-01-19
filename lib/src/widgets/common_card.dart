@@ -25,10 +25,7 @@ class CommonCard extends StatelessWidget {
     this.onLongPress,
     this.onDoubleTap,
     BorderRadius? borderRadius,
-  })  : borderRadius = borderRadius ??
-            const BorderRadius.all(
-              Radius.circular(16.0),
-            ),
+  })  : borderRadius = borderRadius ?? kCardBorderRadius,
         super(key: key);
 
   @override
@@ -45,7 +42,7 @@ class CommonCard extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: 200,
+              height: kCommonCardImageHeight,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: borderRadius.copyWith(
@@ -62,7 +59,7 @@ class CommonCard extends StatelessWidget {
               child: imageOverlay,
             ),
             Container(
-              padding: const EdgeInsets.all(kContainerPadding),
+              padding: kContainerPadding,
               child: Column(
                 children: [
                   if (title != null || titleChild != null)
@@ -70,7 +67,8 @@ class CommonCard extends StatelessWidget {
                       children: [
                         if (title != null)
                           Padding(
-                            padding: const EdgeInsets.only(bottom: kContainerPadding),
+                            padding: const EdgeInsets.only(
+                                bottom: kContainerPaddingValue),
                             child: Text(
                               title!,
                               style: Theme.of(context).textTheme.headline5,

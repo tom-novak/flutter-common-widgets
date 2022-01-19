@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class ShimmerList extends StatelessWidget {
+class CommonListShimmer extends StatelessWidget {
   final int itemCount;
   final IndexedWidgetBuilder? itemBuilder;
 
-  const ShimmerList({
+  const CommonListShimmer({
     Key? key,
     int? itemCount,
     this.itemBuilder,

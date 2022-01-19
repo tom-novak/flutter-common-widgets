@@ -43,7 +43,7 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: kContainerPadding),
+            padding: const EdgeInsets.only(bottom: kContainerPaddingValue),
             child: TextFormField(
               decoration: InputDecoration(
                 labelText: AppLocalizations.of(context)!.login,
