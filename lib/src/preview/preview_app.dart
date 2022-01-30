@@ -27,9 +27,9 @@ class PreviewApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Common App',
         onGenerateTitle: (BuildContext context) =>
-            AppLocalizations.of(context)!.appTitle,
+            CommonLocalizations.of(context)!.appTitle,
         localizationsDelegates: const [
-          AppLocalizations.delegate,
+          CommonLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,

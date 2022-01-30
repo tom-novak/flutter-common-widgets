@@ -81,7 +81,7 @@ class UserProfilePage extends StatelessWidget {
                         context: context,
                         barrierDismissible: false,
                         builder: (context) => ProgressIndicatorOverlay(
-                          label: AppLocalizations.of(context)!.logoutProgress,
+                          label: CommonLocalizations.of(context)!.logoutProgress,
                         ),
                       );
                       Future.delayed(const Duration(milliseconds: 500))
@@ -89,7 +89,7 @@ class UserProfilePage extends StatelessWidget {
                         Provider.of<UserInfo>(context, listen: false).clear();
                       }).then((value) => Navigator.of(context).pop());
                     },
-                    child: Text(AppLocalizations.of(context)!.logout),
+                    child: Text(CommonLocalizations.of(context)!.logout),
                   ),
                 ),
               ],

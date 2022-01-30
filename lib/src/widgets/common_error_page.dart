@@ -15,8 +15,8 @@ class CommonErrorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TitledMessage(
-      title: label ?? AppLocalizations.of(context)!.error,
-      message: description ?? AppLocalizations.of(context)!.somethingWrong,
+      title: label ?? CommonLocalizations.of(context)!.error,
+      message: description ?? CommonLocalizations.of(context)!.somethingWrong,
     );
   }
 }

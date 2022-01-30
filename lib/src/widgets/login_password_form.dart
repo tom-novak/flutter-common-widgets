@@ -46,8 +46,8 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
             padding: const EdgeInsets.only(bottom: kContainerPaddingValue),
             child: TextFormField(
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.login,
-                hintText: AppLocalizations.of(context)!.loginHint,
+                labelText: CommonLocalizations.of(context)!.login,
+                hintText: CommonLocalizations.of(context)!.loginHint,
               ),
               controller: _loginController,
               validator: widget.loginValidator,
@@ -59,8 +59,8 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
           TextFormField(
             obscureText: true,
             decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.password,
-              hintText: AppLocalizations.of(context)!.passwordHint,
+              labelText: CommonLocalizations.of(context)!.password,
+              hintText: CommonLocalizations.of(context)!.passwordHint,
             ),
             controller: _passwordController,
             validator: widget.passwordValidator,
@@ -87,7 +87,7 @@ class _LoginPasswordFormState extends State<LoginPasswordForm> {
                                   );
                                 }
                               },
-                              child: Text(AppLocalizations.of(context)!.submit),
+                              child: Text(CommonLocalizations.of(context)!.submit),
                             ),
                           ),
                       LayoutState.loading: (context) => const SizedBox(

@@ -20,7 +20,7 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
+    final l10n = CommonLocalizations.of(context);
     return MenuPage(
       tiles: [
         CommonListTile(
@@ -49,13 +49,13 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
           builder: (context, user, child) {
             if (user.type == UserType.registered) {
               return ListTile(
-                title: Text(AppLocalizations.of(context)!.logout),
+                title: Text(CommonLocalizations.of(context)!.logout),
                 onTap: () {
                   showDialog(
                     context: context,
                     barrierDismissible: false,
                     builder: (context) => ProgressIndicatorOverlay(
-                      label: AppLocalizations.of(context)!.logoutProgress,
+                      label: CommonLocalizations.of(context)!.logoutProgress,
                     ),
                   );
                   Future.delayed(const Duration(milliseconds: 500))
@@ -66,9 +66,9 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
                       barrierDismissible: false,
                       useSafeArea: false,
                       builder: (context) => CommonErrorScreen(
-                        label: AppLocalizations.of(context)!.error,
+                        label: CommonLocalizations.of(context)!.error,
                         description:
-                            AppLocalizations.of(context)!.somethingWrong,
+                            CommonLocalizations.of(context)!.somethingWrong,
                       ),
                     );
                   });

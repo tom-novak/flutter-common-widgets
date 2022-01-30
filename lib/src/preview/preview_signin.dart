@@ -24,7 +24,7 @@ class _PreviewSignInState extends State<PreviewSignIn> {
           image: DarkBackgroundDecorationImage(),
         ),
         child: BaseVerticalScreen(
-          appBarTitle: Text(AppLocalizations.of(context)!.signIn),
+          appBarTitle: Text(CommonLocalizations.of(context)!.signIn),
           body: CommonLogin(
             form: LoginPasswordForm(
               loginValidator: (value) => notNullValidator(context, value),
