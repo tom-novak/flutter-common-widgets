@@ -13,7 +13,7 @@ class PreviewAboutPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              AppLocalizations.of(context)!.about,
+              CommonLocalizations.of(context)!.about,
               style: Theme.of(context).textTheme.headline3,
             ),
           ],

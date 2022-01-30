@@ -37,7 +37,7 @@ class SearchForm extends StatelessWidget {
                       InputDecoration(
                         border: const UnderlineInputBorder(),
                         hintText:
-                            hintText ?? AppLocalizations.of(context)!.search,
+                            hintText ?? CommonLocalizations.of(context)!.search,
                       ),
                   keyboardType: TextInputType.number,
                 ),

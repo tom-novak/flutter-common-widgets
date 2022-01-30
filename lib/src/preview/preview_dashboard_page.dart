@@ -12,11 +12,11 @@ class PreviewDashboardPage extends StatelessWidget {
         children: List<Widget>.generate(
           5,
           (index) => LabeledSection(
-            label: AppLocalizations.of(context)!.sectionNumber(index),
+            label: CommonLocalizations.of(context)!.sectionNumber(index),
             child: SizedBox(
               height: 120,
               child: Center(
-                child: Text(AppLocalizations.of(context)!.sectionIndexContent(index)),
+                child: Text(CommonLocalizations.of(context)!.sectionIndexContent(index)),
               ),
             ),
           ),

@@ -30,7 +30,7 @@ class CommonErrorScreen extends StatelessWidget {
                   width: double.maxFinite,
                   child: TextButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: Text(AppLocalizations.of(context)!.ok),
+                    child: Text(CommonLocalizations.of(context)!.ok),
                   ),
                 )
               ],

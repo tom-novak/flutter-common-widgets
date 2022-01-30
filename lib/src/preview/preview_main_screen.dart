@@ -12,7 +12,7 @@ class PreviewMainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var l10n = AppLocalizations.of(context);
+    var l10n = CommonLocalizations.of(context);
     return MainScreen(
       appBar: AppBar(
         title: Text(l10n!.appTitle),

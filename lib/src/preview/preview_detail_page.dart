@@ -17,7 +17,7 @@ class PreviewDetailPage extends StatelessWidget {
           stretch: true,
           onStretchTrigger: () async {
             if (kDebugMode) {
-              print(AppLocalizations.of(context)!.loadNewData);
+              print(CommonLocalizations.of(context)!.loadNewData);
             }
           },
           expandedHeight: 200,
@@ -31,7 +31,7 @@ class PreviewDetailPage extends StatelessWidget {
                 ),
                 Flexible(
                   flex: 1,
-                  child: Text(AppLocalizations.of(context)!.itemDetail),
+                  child: Text(CommonLocalizations.of(context)!.itemDetail),
                 ),
                 Flexible(
                   flex: 1,
@@ -71,11 +71,11 @@ class PreviewDetailPage extends StatelessWidget {
             children: List<Widget>.generate(
               20,
               (index) => LabeledSection(
-                label: AppLocalizations.of(context)!.sectionNumber(index),
+                label: CommonLocalizations.of(context)!.sectionNumber(index),
                 child: SizedBox(
                   height: 64,
                   child: Center(
-                    child: Text(AppLocalizations.of(context)!
+                    child: Text(CommonLocalizations.of(context)!
                         .sectionIndexContent(index)),
                   ),
                 ),
