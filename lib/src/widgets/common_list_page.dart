@@ -7,9 +7,9 @@ class CommonListPage extends StatelessWidget {
   final int itemCount;
   final IndexedWidgetBuilder? itemBuilder;
   final ScrollController? controller;
-  final List<CommonItem> items;
-  final ValueChanged<CommonItem>? onSelected;
-  final ValueChanged<CommonItem>? onLongPress;
+  final List<ICommonItem> items;
+  final ValueChanged<ICommonItem>? onSelected;
+  final ValueChanged<ICommonItem>? onLongPress;
   final String Function(BuildContext)? layoutStateBuilder;
   final Future<void> Function()? onRefresh;
   final VoidCallback? onTopReached;
@@ -22,14 +22,14 @@ class CommonListPage extends StatelessWidget {
     this.itemCount = 0,
     this.itemBuilder,
     this.controller,
-    List<CommonItem>? items,
+    List<ICommonItem>? items,
     this.onSelected,
     this.onLongPress,
     this.layoutStateBuilder,
     this.onRefresh,
     this.onTopReached,
     this.onBottomReached,
-  })  : items = items ?? const <CommonItem>[],
+  })  : items = items ?? const <ICommonItem>[],
         super(key: key);
 
   @override
