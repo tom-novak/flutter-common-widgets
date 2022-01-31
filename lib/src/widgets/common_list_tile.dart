@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class CommonListTile extends StatelessWidget {
-  final CommonItem? item;
+  final ICommonItem? item;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
 

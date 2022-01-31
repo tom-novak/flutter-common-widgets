@@ -5,9 +5,9 @@ class ItemsRepository extends ChangeNotifier {
   static const maxItems = 100;
   static const pageSize = 20;
 
-  final Map<int, CommonItem> _items = <int, CommonItem>{};
+  final Map<int, ICommonItem> _items = <int, ICommonItem>{};
 
-  List<CommonItem> get items {
+  List<ICommonItem> get items {
     return List.unmodifiable(_items.values);
   }
 
@@ -42,7 +42,7 @@ class ItemsRepository extends ChangeNotifier {
     );
   }
 
-  CommonItem? get(int itemId) {
+  ICommonItem? get(int itemId) {
     return _items[itemId];
   }
 

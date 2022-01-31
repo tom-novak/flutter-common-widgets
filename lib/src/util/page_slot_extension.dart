@@ -1,7 +1,7 @@
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 extension PageSlotX on NavigationSlot {
-  CommonItem toCommonItem() {
+  ICommonItem toCommonItem() {
     return CommonItem(
       title: label,
     );
@@ -9,8 +9,8 @@ extension PageSlotX on NavigationSlot {
 }
 
 extension PageSlotsX on List<NavigationSlot> {
-  List<CommonItem> toCommonItems() {
-    var commonItems = <CommonItem>[];
+  List<ICommonItem> toCommonItems() {
+    var commonItems = <ICommonItem>[];
     for (var slot in this) {
       commonItems.add(slot.toCommonItem());
     }
