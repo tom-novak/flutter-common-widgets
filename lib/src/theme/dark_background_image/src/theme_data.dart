@@ -1,66 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_common_widgets/src/theme/dark_background_image/src/colors.dart';
 
 const _disabledInputBorder = OutlineInputBorder(
   borderSide: BorderSide(
-    color: Colors.grey,
+    color: DarkBackgroundImageColor.grey,
     width: 2.0,
   ),
 );
 
 const _errorInputBorder = OutlineInputBorder(
   borderSide: BorderSide(
-    color: Colors.deepOrange,
+    color: DarkBackgroundImageColor.deepOrange,
     width: 2.0,
   ),
 );
 
 ThemeData darkBackgroundImage(ThemeData base) {
   var textTheme = base.textTheme.apply(
-        displayColor: Colors.white,
-        bodyColor: Colors.white,
-      );
+    displayColor: DarkBackgroundImageColor.white,
+    bodyColor: DarkBackgroundImageColor.white,
+  );
 
   return base.copyWith(
-    errorColor: Colors.deepOrange,
+    errorColor: DarkBackgroundImageColor.deepOrange,
     textTheme: textTheme,
     colorScheme: base.colorScheme.copyWith(
-          primary: Colors.white,
-        ),
-    scaffoldBackgroundColor: Colors.transparent,
+      primary: DarkBackgroundImageColor.white,
+    ),
+    scaffoldBackgroundColor: DarkBackgroundImageColor.transparent,
     appBarTheme: base.appBarTheme.copyWith(
       elevation: 0,
       systemOverlayStyle: SystemUiOverlayStyle.light,
-      backgroundColor: Colors.black.withOpacity(0.5),
+      backgroundColor: DarkBackgroundImageColor.black.withOpacity(0.5),
     ),
     dividerTheme: base.dividerTheme.copyWith(
-          color: Colors.white,
-          thickness: 2.0,
-          space: 32.0,
-          indent: 64.0,
-          endIndent: 64.0,
-        ),
+      color: DarkBackgroundImageColor.white,
+      thickness: 2.0,
+      space: 32.0,
+      indent: 64.0,
+      endIndent: 64.0,
+    ),
     inputDecorationTheme: base.inputDecorationTheme.copyWith(
-          filled: true,
-          fillColor: Colors.black.withOpacity(0.5),
-          labelStyle: const TextStyle(
-            color: Colors.white,
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: base.colorScheme.background,
-              width: 2.0,
-            ),
-          ),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.white,
-              width: 2.0,
-            ),
-          ),
-          errorBorder: _errorInputBorder,
-          focusedErrorBorder: _errorInputBorder,
-          disabledBorder: _disabledInputBorder,
+      filled: true,
+      fillColor: DarkBackgroundImageColor.black.withOpacity(0.5),
+      labelStyle: const TextStyle(
+        color: DarkBackgroundImageColor.white,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: base.colorScheme.background,
+          width: 2.0,
         ),
+      ),
+      enabledBorder: const OutlineInputBorder(
+        borderSide: BorderSide(
+          color: DarkBackgroundImageColor.white,
+          width: 2.0,
+        ),
+      ),
+      errorBorder: _errorInputBorder,
+      focusedErrorBorder: _errorInputBorder,
+      disabledBorder: _disabledInputBorder,
+    ),
   );
 }

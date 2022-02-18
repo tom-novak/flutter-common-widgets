@@ -64,7 +64,6 @@ ThemeData cyanLightOne(ThemeData base) {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: base.elevatedButtonTheme.style?.copyWith(
             foregroundColor: MaterialStateProperty.all(_primaryColor),
-            minimumSize: MaterialStateProperty.all(const Size(48.0, 48.0)),
           ) ??
           ElevatedButton.styleFrom(
             primary: _primaryColor,
