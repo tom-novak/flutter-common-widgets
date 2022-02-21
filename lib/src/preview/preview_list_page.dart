@@ -27,17 +27,10 @@ class _PreviewListPageState extends State<PreviewListPage> {
   }
 
   void onBottomReached() {
-    if (_controller.position.pixels >
-        _controller.position.maxScrollExtent) {
-      setState(() {
-        loadingStatus = LoadingStatus.loading;
-      });
+    if (_controller.position.pixels >= _controller.position.maxScrollExtent) {
+      setState(() => loadingStatus = LoadingStatus.loading);
       Provider.of<ItemsRepository>(context, listen: false).loadNext().then(
-            (value) => setState(
-              () {
-                loadingStatus = LoadingStatus.idle;
-              },
-            ),
+            (value) => setState(() => loadingStatus = LoadingStatus.idle),
           );
     }
   }
@@ -58,6 +51,7 @@ class _PreviewListPageState extends State<PreviewListPage> {
           onRefresh: repository.refresh,
           child: SliverListPage(
             controller: _controller,
+            physics: const ScrollPhysics(),
             itemBuilder: (context, index) {
               return CommonListTile(
                   item: items[index],
@@ -66,7 +60,7 @@ class _PreviewListPageState extends State<PreviewListPage> {
                       MaterialPageRoute(
                         builder: (context) {
                           return const BaseVerticalScreen(
-                            body: PreviewDetailPage(itemId: 0,),
+                            body: PreviewDetailPage(itemId: 0),
                           );
                         },
                       ),
