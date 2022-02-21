@@ -32,6 +32,7 @@ class UserProfilePage extends StatelessWidget {
             color: Colors.white, fontWeight: FontWeight.w300, letterSpacing: 2);
 
     return CustomScrollView(
+      physics: const ScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: Padding(
