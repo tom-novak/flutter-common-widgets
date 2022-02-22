@@ -25,36 +25,48 @@ class _PreviewCardsPageState extends State<PreviewCardsPage> {
   Widget build(BuildContext context) {
     return Consumer<ItemsRepository>(
       builder: (context, repository, child) {
-        var items = repository.items;
-
-        return CommonListPage(
-          onRefresh: repository.refresh,
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            var item = items[index];
-            return Padding(
-              padding: item != items.last
-                  ? const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0)
-                  : const EdgeInsets.all(8.0),
-              child: ImageCard(
-                title: item.title,
-                description: item.description,
-                image: item.image,
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const BaseVerticalScreen(
-                          body: PreviewDetailPage(itemId: 0,),
+        if (repository.isLoading) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else {
+          return repository.failureOrSuccessOption.fold(
+            () => const SizedBox.shrink(),
+            (failureOrSuccess) => failureOrSuccess.fold(
+              (failure) => const SizedBox.shrink(),
+              (items) => CommonListPage(
+                onRefresh: () async => repository.refresh,
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  var item = items[index];
+                  return Padding(
+                    padding: item != items.last
+                        ? const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0)
+                        : const EdgeInsets.all(8.0),
+                    child: ImageCard(
+                      title: item.title,
+                      description: item.description,
+                      image: item.image,
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const BaseVerticalScreen(
+                                body: PreviewDetailPage(
+                                  itemId: 0,
+                                ),
+                              );
+                            },
+                          ),
                         );
                       },
                     ),
                   );
                 },
               ),
-            );
-          },
-        );
+            ),
+          );
+        }
       },
     );
   }
