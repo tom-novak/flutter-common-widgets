@@ -56,5 +56,6 @@
     "logout": "Logout",
     "logoutProgress": "Logout",
     "ok": "Ok",
-    "account": "Account"
+    "account": "Account",
+    "or": "Or"
 }

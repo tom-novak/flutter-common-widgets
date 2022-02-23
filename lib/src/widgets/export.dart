@@ -10,6 +10,7 @@ export 'common_login.dart';
 export 'constants.dart';
 export 'dark_background_image_decoration.dart';
 export 'image_card.dart';
+export 'labeled_divider.dart';
 export 'labeled_section.dart';
 export 'loading_indicator.dart';
 export 'loading_list.dart';

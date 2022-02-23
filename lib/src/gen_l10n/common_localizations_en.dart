@@ -111,4 +111,7 @@ class CommonLocalizationsEn extends CommonLocalizations {
 
   @override
   String get account => 'Account';
+
+  @override
+  String get or => 'Or';
 }

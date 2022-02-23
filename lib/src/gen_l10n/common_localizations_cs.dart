@@ -111,4 +111,7 @@ class CommonLocalizationsCs extends CommonLocalizations {
 
   @override
   String get account => 'Účet';
+
+  @override
+  String get or => 'Nebo';
 }
