@@ -37,9 +37,9 @@ ThemeData darkBackgroundImage(ThemeData base) {
     dividerTheme: base.dividerTheme.copyWith(
       color: DarkBackgroundImageColor.white,
       thickness: 2.0,
-      space: 32.0,
-      indent: 64.0,
-      endIndent: 64.0,
+      space: 64.0,
+      indent: 96.0,
+      endIndent: 96.0,
     ),
     inputDecorationTheme: base.inputDecorationTheme.copyWith(
       filled: true,

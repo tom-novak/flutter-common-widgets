@@ -291,6 +291,12 @@ abstract class CommonLocalizations {
   /// In en, this message translates to:
   /// **'Account'**
   String get account;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'Or'**
+  String get or;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<CommonLocalizations> {

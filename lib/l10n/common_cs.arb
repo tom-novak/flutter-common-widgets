@@ -56,5 +56,6 @@
     "logout": "Odhlásit",
     "logoutProgress": "Odhlašování",
     "ok": "Ok",
-    "account": "Účet"
+    "account": "Účet",
+    "or": "Nebo"
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common_widgets/flutter_common_localizations.dart';
+import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class CommonLogin extends StatelessWidget {
   final Widget form;
@@ -18,7 +20,10 @@ class CommonLogin extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           form,
-          if (alternativeActions != null) const Divider(),
+          if (alternativeActions != null)
+            LabeledDivider(
+              label: CommonLocalizations.of(context)?.or.toUpperCase() ?? 'OR',
+            ),
           alternativeActions ?? const SizedBox.shrink(),
         ],
       ),
