@@ -26,9 +26,7 @@ class _PreviewCardsPageState extends State<PreviewCardsPage> {
     return Consumer<ItemsRepository>(
       builder: (context, repository, child) {
         if (repository.isLoading) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const CommonCardsShimmer();
         } else {
           return repository.failureOrSuccessOption.fold(
             () => const SizedBox.shrink(),
