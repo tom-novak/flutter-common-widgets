@@ -45,37 +45,46 @@ class _PreviewMenuPageState extends State<PreviewMenuPage> {
             );
           },
         ),
-        Consumer<UserInfo>(
-          builder: (context, user, child) {
-            if (user.type == UserType.registered) {
-              return ListTile(
-                title: Text(CommonLocalizations.of(context)!.logout),
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (context) => ProgressIndicatorOverlay(
-                      label: CommonLocalizations.of(context)!.logoutProgress,
-                    ),
-                  );
-                  Future.delayed(const Duration(milliseconds: 500))
-                      .then((value) {
-                    Navigator.of(context).pop();
-                    showDialog(
-                      context: context,
-                      barrierDismissible: false,
-                      useSafeArea: false,
-                      builder: (context) => CommonErrorScreen(
-                        label: CommonLocalizations.of(context)!.error,
-                        description:
-                            CommonLocalizations.of(context)!.somethingWrong,
-                      ),
+        Consumer<UserRepository>(
+          builder: (context, userRepository, child) {
+            return userRepository.failureOrSuccessOption.fold(
+              () => const SizedBox.shrink(),
+              (failureOrSuccess) => failureOrSuccess
+                  .fold((userFailure) => const CommonErrorPage(), (user) {
+                switch (user.type) {
+                  case UserType.registered:
+                    return ListTile(
+                      title: Text(CommonLocalizations.of(context)!.logout),
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) => ProgressIndicatorOverlay(
+                            label:
+                                CommonLocalizations.of(context)!.logoutProgress,
+                          ),
+                        );
+                        Future.delayed(const Duration(milliseconds: 500))
+                            .then((value) {
+                          Navigator.of(context).pop();
+                          showDialog(
+                            context: context,
+                            barrierDismissible: false,
+                            useSafeArea: false,
+                            builder: (context) => CommonErrorScreen(
+                              label: CommonLocalizations.of(context)!.error,
+                              description: CommonLocalizations.of(context)!
+                                  .somethingWrong,
+                            ),
+                          );
+                        });
+                      },
                     );
-                  });
-                },
-              );
-            }
-            return const SizedBox.shrink();
+                  default:
+                    return const SizedBox.shrink();
+                }
+              }),
+            );
           },
         ),
       ],

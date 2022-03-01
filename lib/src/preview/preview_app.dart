@@ -10,54 +10,57 @@ class PreviewApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<AppPackageInfo>(
-          create: (context) => AppPackageInfo(),
-        ),
-        ChangeNotifierProvider<UserInfo>(
-          create: (context) => UserInfo(),
-        ),
-        ChangeNotifierProvider<NeedsRestrictedContent>(
-          create: (context) => NeedsRestrictedContent(),
-        ),
-        ChangeNotifierProvider<ItemsRepository>(
-          create: (context) => ItemsRepository(),
-        ),
-      ],
-      child: MaterialApp(
-        title: 'Common App',
-        onGenerateTitle: (BuildContext context) =>
-            CommonLocalizations.of(context)!.appTitle,
-        localizationsDelegates: const [
-          CommonLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
+        providers: [
+          ChangeNotifierProvider<AppPackageInfo>(
+            create: (context) => AppPackageInfo(),
+          ),
+          ChangeNotifierProvider<UserRepository>(
+            create: (context) => UserRepository(),
+          ),
+          ChangeNotifierProvider<NeedsRestrictedContent>(
+            create: (context) => NeedsRestrictedContent(),
+          ),
+          ChangeNotifierProvider<ItemsRepository>(
+            create: (context) => ItemsRepository(),
+          ),
         ],
-        supportedLocales: const [
-          Locale('en', ''),
-          Locale('cs', ''),
-        ],
-        theme: ThemeData().cyanLightOne,
-        home: Consumer<UserInfo>(
-            builder: (context, user, child) {
-              if (user.type == UserType.anonymous) {
-                return const PreviewStartSignInScreen();
-              }
-              return child!;
-            },
-            child: Consumer<NeedsRestrictedContent>(
-                builder: (context, needsRestrictedContent, child) {
-                  var userType =
-                      Provider.of<UserInfo>(context, listen: false).type;
-                  if (needsRestrictedContent.value &&
-                      userType == UserType.anonymous) {
-                    return const PreviewSignIn();
+        child: MaterialApp(
+          title: 'Common App',
+          onGenerateTitle: (BuildContext context) =>
+              CommonLocalizations.of(context)!.appTitle,
+          localizationsDelegates: const [
+            CommonLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('en', ''),
+            Locale('cs', ''),
+          ],
+          theme: ThemeData().cyanLightOne,
+          home: Consumer<UserRepository>(
+            builder: (context, userRepository, child) {
+              return userRepository.failureOrSuccessOption.fold(
+                () => const SizedBox.shrink(),
+                (failureOrSuccess) => failureOrSuccess
+                    .fold((userFailure) => const CommonErrorPage(), (user) {
+                  if (user.type == UserType.anonymous) {
+                    return const PreviewStartSignInScreen();
                   }
-                  return child!;
-                },
-                child: const PreviewMainScreen())),
-      ),
-    );
+                  return Consumer<NeedsRestrictedContent>(
+                      builder: (context, needsRestrictedContent, child) {
+                        if (needsRestrictedContent.value &&
+                            user.type == UserType.anonymous) {
+                          return const PreviewSignIn();
+                        }
+                        return child!;
+                      },
+                      child: const PreviewMainScreen());
+                }),
+              );
+            },
+          ),
+        ));
   }
 }

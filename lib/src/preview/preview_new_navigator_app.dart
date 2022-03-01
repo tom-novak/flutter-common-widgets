@@ -23,8 +23,8 @@ class _PreviewNewNavigatorAppState extends State<PreviewNewNavigatorApp> {
         ChangeNotifierProvider<AppPackageInfo>(
           create: (context) => AppPackageInfo(),
         ),
-        ChangeNotifierProvider<UserInfo>(
-          create: (context) => UserInfo(),
+        ChangeNotifierProvider<UserRepository>(
+          create: (context) => UserRepository(),
         ),
         ChangeNotifierProvider<NeedsRestrictedContent>(
           create: (context) => NeedsRestrictedContent(),

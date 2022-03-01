@@ -21,5 +21,6 @@ export 'search_form.dart';
 export 'sliver_list_page.dart';
 export 'titled_message.dart';
 export 'unknown_screen.dart';
+export 'user_profile.dart';
 export 'user_profile_page.dart';
 export 'user_profile_shimmer.dart';
