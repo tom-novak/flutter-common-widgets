@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:uuid/uuid.dart';
 
 class PreviewStartSignInScreen extends StatefulWidget {
   const PreviewStartSignInScreen({
@@ -46,7 +47,8 @@ class _PreviewStartSignInScreenState extends State<PreviewStartSignInScreen> {
                     flex: 2,
                     child: CommonLogin(
                       form: LoginPasswordForm(
-                        loginValidator: (value) => notNullValidator(context, value),
+                        loginValidator: (value) =>
+                            notNullValidator(context, value),
                         passwordValidator: (value) =>
                             notNullValidator(context, value),
                         layoutState: layoutState,
@@ -54,20 +56,24 @@ class _PreviewStartSignInScreenState extends State<PreviewStartSignInScreen> {
                           setState(() {
                             layoutState = LayoutState.loading;
                           });
-                          Future.delayed(const Duration(milliseconds: 700)).then(
+                          Future.delayed(const Duration(milliseconds: 700))
+                              .then(
                             (value) {
-                              Provider.of<UserInfo>(context, listen: false)
-                                  .updateWith(
+                              Provider.of<UserRepository>(context,
+                                      listen: false)
+                                  .setUser(User(
+                                id: const Uuid().v4(),
                                 type: UserType.registered,
                                 firstName: 'John',
                                 lastName: 'Smith',
                                 email: 'john.smith@goodemail.com',
-                              );
+                              ));
                             },
                           );
                         },
                       ),
-                      alternativeActions: const PreviewAlternativeSignInActions(),
+                      alternativeActions:
+                          const PreviewAlternativeSignInActions(),
                     ),
                   ),
                 ],

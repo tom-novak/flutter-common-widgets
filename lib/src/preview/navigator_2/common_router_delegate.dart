@@ -39,66 +39,75 @@ class CommonRouterDelegate extends RouterDelegate<CommonRoutePath>
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<UserInfo>(
-      builder: (context, user, child) {
-        if (user.type == UserType.anonymous) {
-          return Navigator(
-            key: navigatorKey,
-            reportsRouteUpdateToEngine: true,
-            pages: const [
-              MaterialPage(
-                key: ValueKey('StartLoginPage'),
-                name: '/login',
-                child: PreviewStartSignInScreen(),
-              ),
-            ],
-            onPopPage: (route, result) {
-              return true;
+    return Consumer<UserRepository>(
+      builder: (context, userRepository, child) {
+        return userRepository.failureOrSuccessOption.fold(
+          () => const CommonErrorPage(),
+          (failureOrSuccess) => failureOrSuccess.fold(
+            (userFailure) => const CommonErrorPage(),
+            (user) {
+              if (user.type == UserType.anonymous) {
+                return Navigator(
+                  key: navigatorKey,
+                  reportsRouteUpdateToEngine: true,
+                  pages: const [
+                    MaterialPage(
+                      key: ValueKey('StartLoginPage'),
+                      name: '/login',
+                      child: PreviewStartSignInScreen(),
+                    ),
+                  ],
+                  onPopPage: (route, result) {
+                    return true;
+                  },
+                );
+              }
+              return Navigator(
+                key: navigatorKey,
+                reportsRouteUpdateToEngine: true,
+                pages: [
+                  MaterialPage(
+                    key: const ValueKey('MainPage'),
+                    name: '/',
+                    child: PreviewMainScreen(
+                      selectedMainTab: selectedMainTab,
+                    ),
+                  ),
+                  if (needsLogin)
+                    const MaterialPage(
+                      key: ValueKey('LoginPage'),
+                      child: PreviewSignIn(),
+                    )
+                  else if (showProfile)
+                    const ProfilePage(),
+                ],
+                onPopPage: (route, result) {
+                  if (!route.didPop(result)) {
+                    return false;
+                  }
+
+                  needsLogin = false;
+                  notifyListeners();
+
+                  return true;
+                },
+                onGenerateRoute: (routeSettings) {
+                  switch (routeSettings.name) {
+                    case '/profile':
+                      return ProfilePage().createRoute(context);
+                    default:
+                      return MaterialPageRoute(
+                          builder: (context) => const UnknownScreen());
+                  }
+                },
+                onUnknownRoute: (routeSettings) {
+                  return MaterialPageRoute(
+                    builder: (context) => const UnknownScreen(),
+                  );
+                },
+              );
             },
-          );
-        }
-        return Navigator(
-          key: navigatorKey,
-          reportsRouteUpdateToEngine: true,
-          pages: [
-            MaterialPage(
-              key: const ValueKey('MainPage'),
-              name: '/',
-              child: PreviewMainScreen(
-                selectedMainTab: selectedMainTab,
-              ),
-            ),
-            if (needsLogin)
-              const MaterialPage(
-                key: ValueKey('LoginPage'),
-                child: PreviewSignIn(),
-              )
-            else if (showProfile)
-              ProfilePage(user: user),
-          ],
-          onPopPage: (route, result) {
-            if (!route.didPop(result)) {
-              return false;
-            }
-
-            needsLogin = false;
-            notifyListeners();
-
-            return true;
-          },
-          onGenerateRoute: (routeSettings) {
-            switch (routeSettings.name) {
-              case '/profile':
-                return ProfilePage(user: user).createRoute(context);
-              default:
-                return MaterialPageRoute(builder: (context) => const UnknownScreen());
-            }
-          },
-          onUnknownRoute: (routeSettings) {
-            return MaterialPageRoute(
-              builder: (context) => const UnknownScreen(),
-            );
-          },
+          ),
         );
       },
     );

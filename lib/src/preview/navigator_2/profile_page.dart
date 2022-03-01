@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/flutter_common_widgets.dart';
 
 class ProfilePage extends Page {
-  final UserInfo user;
-
-  const ProfilePage({required this.user})
+  const ProfilePage()
       : super(
           key: const ValueKey('ProfilePage'),
           name: '/profile',
@@ -14,13 +12,7 @@ class ProfilePage extends Page {
   Route createRoute(BuildContext context) {
     return MaterialPageRoute(
       settings: this,
-      builder: (context) => UserProfilePage(
-        user: user,
-        image: const AssetImage(
-          'assets/images/train_small.jpg',
-          package: 'flutter_common_widgets',
-        ),
-      ),
+      builder: (context) => const PreviewProfilePage(),
     );
   }
 }
