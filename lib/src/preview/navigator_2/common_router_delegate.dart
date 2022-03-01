@@ -94,7 +94,7 @@ class CommonRouterDelegate extends RouterDelegate<CommonRoutePath>
                 onGenerateRoute: (routeSettings) {
                   switch (routeSettings.name) {
                     case '/profile':
-                      return ProfilePage().createRoute(context);
+                      return const ProfilePage().createRoute(context);
                     default:
                       return MaterialPageRoute(
                           builder: (context) => const UnknownScreen());
