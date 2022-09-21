@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const _primaryColor = Colors.cyan;
+const _foregroundColor = Colors.cyan;
 const _accentColor = Colors.amber;
 final _textColor = Colors.grey[600];
 
@@ -12,7 +12,7 @@ ThemeData cyanLightOne(ThemeData base) {
 
   return base.copyWith(
     colorScheme: base.colorScheme.copyWith(
-      primary: _primaryColor,
+      primary: _foregroundColor,
       secondary: _accentColor,
     ),
     textTheme: textTheme.copyWith(
@@ -57,16 +57,16 @@ ThemeData cyanLightOne(ThemeData base) {
             ),
           ) ??
           TextButton.styleFrom(
-            primary: _primaryColor,
+            foregroundColor: _foregroundColor,
             minimumSize: const Size(48.0, 48.0),
           ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: base.elevatedButtonTheme.style?.copyWith(
-            foregroundColor: MaterialStateProperty.all(_primaryColor),
+            foregroundColor: MaterialStateProperty.all(_foregroundColor),
           ) ??
           ElevatedButton.styleFrom(
-            primary: _primaryColor,
+            backgroundColor: _foregroundColor,
             minimumSize: const Size(48, 48),
           ),
     ),
