@@ -30,20 +30,20 @@ class LoadingIndicator extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget _content;
+    Widget content;
     switch (status) {
       case LoadingStatus.idle:
-        _content = const Center(
+        content = const Center(
           child: Text('No more data'),
         );
         break;
       case LoadingStatus.canLoading:
-        _content = const Center(
+        content = const Center(
           child: Text('Load more...'),
         );
         break;
       case LoadingStatus.loading:
-        _content = Row(
+        content = Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             SizedBox(
@@ -55,13 +55,13 @@ class LoadingIndicator extends StatelessWidget implements PreferredSizeWidget {
         );
         break;
       default:
-        _content = const SizedBox.shrink();
+        content = const SizedBox.shrink();
         break;
     }
 
     return SizedBox(
       height: preferredSize.height,
-      child: _content,
+      child: content,
     );
   }
 }

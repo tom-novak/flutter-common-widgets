@@ -16,6 +16,8 @@ class CommonCardShimmer extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: borderRadius),
       child: Shimmer.fromColors(
+        baseColor: Colors.grey[300]!,
+        highlightColor: Colors.grey[200]!,
         child: Column(
           children: [
             Container(
@@ -57,8 +59,6 @@ class CommonCardShimmer extends StatelessWidget {
             ),
           ],
         ),
-        baseColor: Colors.grey[300]!,
-        highlightColor: Colors.grey[200]!,
       ),
     );
   }

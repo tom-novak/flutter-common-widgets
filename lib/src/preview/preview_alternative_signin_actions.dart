@@ -17,7 +17,7 @@ class PreviewAlternativeSignInActions extends StatelessWidget {
                             Colors.amber,
                           ),
                         ) ??
-                    ElevatedButton.styleFrom(primary: Colors.amber),
+                    ElevatedButton.styleFrom(backgroundColor: Colors.amber),
                 onPressed: () {},
                 child: Text(CommonLocalizations.of(context)!.token),
               ),
@@ -36,7 +36,7 @@ class PreviewAlternativeSignInActions extends StatelessWidget {
                             Colors.red[600],
                           ),
                         ) ??
-                    ElevatedButton.styleFrom(primary: Colors.red[600]),
+                    ElevatedButton.styleFrom(backgroundColor: Colors.red[600]),
                 onPressed: () {},
                 child: Text(CommonLocalizations.of(context)!.google),
               ),
